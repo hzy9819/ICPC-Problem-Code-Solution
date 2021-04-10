@@ -1,0 +1,66 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage{ctex}
+\usepackage{amsmath}%数学的库
+\usepackage{graphicx}%图片处理的库
+\usepackage[centerlast]{caption}
+\usepackage[bf, small]{titlesec}
+\usepackage[top = 1.0in, bottom = 1.0in, left = 1.0in, right = 1.0in]{geometry}
+
+\setlength{\parskip}{0.8\baselineskip}
+\setlength{\parindent}{2em}
+
+\title{Solution}
+\author{Hzy9819}
+
+\begin{document}
+\maketitle
+
+\section{Tips}
+这场的B，C题怎么感觉比D，E还难啊。
+
+\section{A}
+\subsection{Description}
+给你一个长度为n的串，统计里面\underline{\textbf{子序列}}为QAQ的个数。
+
+$n <= 100$.
+\subsection{Solution}
+记下前缀和即可。
+\section{B}
+\subsection{Description}
+要求你在$n*m$的方格里填整数，使得每一行与每一列的数字的乘积都为$k$，$k$为$1$ $or$ $-1$，问方案数，$mod$  $10^{9} + 7$.
+
+$n, m <= 10^{18}$.
+\subsection{Solution}
+显然只能填$1$和$-1$.
+
+先考虑无解的情况，若$n+m$为奇数，而$k=-1$显然无解。
+
+对于剩下的情况，$(n-1)$ * $(m-1)$的方格里面随便填，让最后一行最后一列匹配即可。
+
+所以$ans$ = $2^{(m-1) + (n-1)}$.
+\section{C}
+\subsection{Description}
+给你一个数字集合，大小为$m$，要求你构造一个长度不超过4000的数列，使得任意一段数字的$gcd$都在给定的集合内，且满足集合内的数字至少出现一次。
+
+$m <= 1000$
+\subsection{Solution}
+若集合内的所有数字的$gcd$不等于集合内最小的数的话，显然无解。
+
+那么取集合内所有的数，并在相邻的数字之间填上最小的数字，这显然是一个合法的构造。
+
+\section{D}
+\subsection{Description}
+给你一棵平衡二叉树(节点$i$的父亲为$i/2$),并给出树上路径的长度，并给出$q$个形如$(x,y)$询问，问你所有到$x$点的距离$s$小于$y$的点的$(y-s)$的和。
+
+$n <= 5 * 10^4$, $q <= 10^5$.
+\subsection{Solution}
+每个节点存子树内所有点到自身的距离并排序，由于时平衡二叉树，所以空间仅有$O(nlogn)$，对于合并时归并排序，查询时不断往父亲跳统计即可，统计时二分。
+\section{E}
+\subsection{Description}
+给定一个$n$个点$m$条边的有向图，一条路可以重复走，第一次走的收益为$w_i$, 第二次为$w_i - 1$, 第三次为$w_i - 1 - 2$... 收益不会变为负数，给你出发点，问你最大收益。
+
+$n, m <= 10^6$
+\subsection{Solution}
+缩点后在$DAG$上$Dp$即可(这可能是我见过最简单的E题
+
+\end{document}

@@ -1,0 +1,66 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage{ctex}
+\usepackage{amsmath}%数学的库
+\usepackage{graphicx}%图片处理的库
+\usepackage[centerlast]{caption}
+\usepackage[bf, small]{titlesec}
+\usepackage[top = 1.0in, bottom = 1.0in, left = 1.0in, right = 1.0in]{geometry}
+
+\setlength{\parskip}{0.8\baselineskip}
+\setlength{\parindent}{2em}
+
+\title{Solution}
+\author{Hzy9819}
+
+\begin{document}
+\maketitle
+
+\section{Tips}
+这一场加了一百四十多分啊
+
+\section{A}
+\subsection{Description}
+给你n个区间，问这n个区间是否可以覆盖$0 \sim n$。
+
+n, m $<=$ 100.
+\subsection{Solution}
+傻逼题。
+
+\section{B}
+\subsection{Description}
+给定一颗n个点有根树，要你将这颗树染色，每次可以将一棵子树染成相同的颜色，给出目标树，输出最小步数。
+
+n $<=$ 10000.
+\subsection{Solution}
+从上往下染，判断子树内部点颜色是否都相同即可。
+
+\section{C}
+\subsection{Description}
+给定一个深度为h的树，给定深度为$i$的点的个数为$a_i$，要你构造两个不同的树满足给定情况。
+
+$\sum{a_i}$ $<=$ $2 * 10^5$
+\subsection{Solution}
+若$a_{0 \sim h-1} $都为1，则显然树唯一，不然对于大于1的深度交换子树即可。
+
+\section{D}
+\subsection{Description}
+设多项式也可以做gcd操作，要你构造两个长度不超过n的多项式，系数只能为-1, 0, 1，使得他们要做恰好n次gcd才能求出最大公共子式。
+
+n $<=$ 150
+\subsection{Solution}
+考虑反过来操作，枚举初始两个多项式，由于系数只能为-1, 0, 1，所以每次最多推出2个上一级多项式，合法性剪枝即可。
+
+\section{E}
+\subsection{Description}
+给定一个没有偶数环的无向图，每次询问l, r, 求有多少的点对$l$ $<=$ $x$ $<=$ $y$ $<=$ $r$，使得仅剩x，y之间的点和边的子图是个二分图。
+
+$n$, $m$ $<=$ $3 * 10^5$
+\subsection{Solution}
+x,y之间是二分图的充要条件是剩下的子图中没有奇数环，那么把原图中的所有奇数环看成区间，那么询问就转化为了区间[x, y]内不能包含任意求出的区间(奇数环)。
+
+对于每个点维护一个$rm_i$代表该点最多可以选到$rm_i$，使[i, x]满足条件。
+
+显然$rm_i$递增，那么对于每个询问$l$, $r$二分出$rm_i$ $>=$ $r$的位置即可，前半段前缀和，后半段直接计算。
+
+
+\end{document}

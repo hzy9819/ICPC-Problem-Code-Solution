@@ -1,0 +1,77 @@
+\documentclass[7pt, a4paper]{article}
+\usepackage{ctex}
+\usepackage{amsmath}%数学的库
+\usepackage{graphicx}%图片处理的库
+\usepackage[centerlast]{caption}
+\usepackage[bf, small]{titlesec}
+\usepackage[top = 1.0in, bottom = 1.0in, left = 1.0in, right = 1.0in]{geometry}
+
+\setlength{\parskip}{0.5\baselineskip}
+\setlength{\parindent}{2em}
+
+\title{Solution}
+\author{$BasicLaw$}
+
+\begin{document}
+\maketitle
+
+\section{A}
+\subsection{Description}
+自动门会在开启后d秒关闭，现在有$n(n <= 10^{9})$个人，分别在$a, 2a, 3a, ..., na$时间进入自动门，以及$m(m <= 10^{5})$个人分别在$t_{i}$时间进入自动门，问门总共要开多少次。
+\subsection{Solution}
+大模拟题，细节比较多。
+
+考虑将$t_{i}$从小到大逐次插入，如果它已经被覆盖，则继续;不然就将其前面的所有a都覆盖掉(可以$O(1)$计算)，再判断是否覆盖更新时间与答案即可。
+
+\section{E}
+\subsection{Description}
+猜一个长度为$n$的单词，每次可以猜一种字母，然后字母的所有出现位置会被标记为该字母，没有则不标;现在有$m$个长度$n$的单词,但不知道哪个是要猜的,已经猜了若干个字母,求有多少种字母满足猜这个字母后一定有新的位置被标记.
+
+$n <= 50, m <= 1000$
+
+\subsection{Solution}
+先把所有不合法单词去掉,枚举字母,若对每个单词,这个字母出现位置和仍未知的位置有交集则可行，否则不可行.
+
+
+
+\section{H}
+\subsection{Description}
+给定一个字符串，将其重新排列后，将其划分为等长的回文串，输出最少的划分回文串的方式。
+\subsection{Solution}
+比较简单的构造题。
+
+没有数量为单数的字符可以直接构成一个回文串。
+
+而有数量为单数的字符时，数量为单数的字符必然要选取一个作为回文串的中点，但此法不一定能构造成功，所以每次还得多取两个相同字符作为回文串中点，枚举回文串个数判断后构造即可。
+
+细节较多。
+
+\section{I}
+\subsection{Description}
+长度$n$的$a_{n}$序列,要求分成每块长度$>= k$的若干块,求$min(max$(所有块)$(max(i,j \in $同一块$)(|v[i]-v[j]|)))$.
+
+$k, n<=300000$
+\subsection{Solution}
+二分答案$k$, 以$i$作为块尾, 则可能的块首位置是一个连续的区间, 二分求出这个区间, 由于是验证存在性, 只需区间中存在能接上上一块的块首, 这个每次记录一下即可.
+
+复杂度$O(nlog^{2n})$
+
+\section{K}
+\subsection{Description}
+一条街道有$n$块地, 第$i$块有宽度$s_{i}$的路和宽度$g_{i}$的草坪,现在将部分草坪改建为路, 设新路$s^{'}_{i}$,使改建后$ \sum{s^{'}_{i}}$最大,且$|s^{'}_{i}-s^{'}_{i + 1}| <= 1$.改建前不一定满足前面的条件.
+
+$n <= 200000$
+\subsection{Solution}
+找到$s^{'}_{i}$,满足$s_{i} <= s^{'}_{i} <= s_{i} + g_{i}, |s^{'}_{i} - s^{'}_{i+1} | <= 1$,使$\sum{s^{'}_{i}}$最大.
+
+放在二维平面上是一个走路径的问题,仔细分析可知对$i$,若 $< i$的路径与过$(i, s_{i} + g_{i})$ 和$(i, s_{i})$ 的两个半平面相交,则无论怎样调整$s^{'}_{i}$都不满足要求.
+
+将半平面求交,贪心地取不与当前交相交的最大的$s^{'}_{i}$,这样得到的$\sum{s^{'}_{i}}$一定最大.
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,70 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage{ctex}
+\usepackage{amsmath}%数学的库
+\usepackage{graphicx}%图片处理的库
+\usepackage[centerlast]{caption}
+\usepackage[bf, small]{titlesec}
+\usepackage[colorlinks, linkcolor=blue]{hyperref}
+\usepackage[top = 1.0in, bottom = 1.0in, left = 1.0in, right = 1.0in]{geometry}
+
+\setlength{\parskip}{0.8\baselineskip}
+\setlength{\parindent}{2em}
+
+\title{1.21-1.26汇总}
+\author{BasicLaw}
+
+\begin{document}
+\maketitle
+
+\section{A}
+\subsection{Source}
+\url{http://codeforces.com/problemset/problem/914/E}
+\subsection{Description}
+一棵树,每个节点有字母$a \sim t$,一条路径$(u, v)$合法 $<=>$ 上面节点字母存在一个排列为回文排列.
+
+求每个点被合法路径经过的次数.
+
+一个点组成的路径也算合法.
+
+\subsection{Solution}
+$a \sim t$ = 0..19,一条路径满足条件当且仅当出现奇数次的字母不超过一个,将字母压位后,一段路径所有点异或 = 0/$2^i$即满足条件.考虑树分治,存下从顶点到根的异或集合.
+
+对于子树内答案的统计,每次dfs 一个根子树,dfs到这个点时,它会被以它为起点,终点在其他根子树和起点在它子树,终点在其他根子树的路径统计,前一部分直接查询异或集合,后一部分dfs回溯时得到.
+
+\section{B}
+\subsection{Source}
+\url{http://codeforces.com/problemset/problem/914/D}
+\subsection{Description}
+a[],两个操作: 
+
+1 l r x :可以将[l,r]中一个数修改(实际不修改),求之后区间求gcd是否能等于x
+
+2 i x: 把a[i]改成x
+
+\subsection{Solution}
+相当于容错:剔除至多一个数,剩下的数的gcd为x（询问x)的倍数,那么把这个数改为x就行了.对区间进行二分来找出一个不好的数，再判断该数左右两侧gcd是否都是x的倍数.复杂度为$o(nlog^2n)$,应该不是正确的复杂度,用了自底向上的线段树方法缩小了常数.
+
+注意程序中标号从0开始，每次线段树求和区间是左闭右开.
+
+$o(nlogn)$ : $(l,r$)在线段树中对应$o(logn)$个区间,若其中有多于两个区间$gcd$ $!=$ $k*x$则答案是NO,若没有是YES,若只有一个区间,$o(logn)$递归寻找来判断是否有两个数不是x的倍数.
+
+\section{C}
+\subsection{Source}
+\url{http://codeforces.com/problemset/problem/913/E}
+\subsection{Description}
+已知一个含参数x,y,z的布尔表达式（仅含$\mid, \&,(),!,x,y,z$)代入8种值(000-111)得到的所有结果,构造一个这样的表达式，且其长度在所有可能表达式中最小,有多个最小的取最小字典序.
+
+布尔表达式的构造遵循一下规则:
+
+E ::= E '$\mid$' T $\mid$ T
+
+T ::= T '$\&$' F $\mid$ F
+
+F ::= '!' F $\mid$ '(' E ')' $\mid$ 'x' $\mid$ 'y' $\mid$ 'z'
+
+\subsection{Solution}
+以表达式的结果(00000000-11111111)为状态,总共n=3*256个状态(E,T,F),每次根据规则在状态间转移(添加$\&,\mid$等符号),注意到从某个状态更新的所有状态不可能再更新原状态,故和Dijkstra算法类似,用类似的方法转移,复杂度o($n^2$).
+
+\section{D}
+
+\end{document}

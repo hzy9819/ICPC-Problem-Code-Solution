@@ -1,0 +1,10 @@
+digraph test002 {
+	d[label="002: sample 2, n=4, +-1 edges, NO" shape=box]
+	v1
+	v2
+	v3
+	v4
+	v1 -> v4;
+	v1 -> v4;
+	v2 -> v2;
+}

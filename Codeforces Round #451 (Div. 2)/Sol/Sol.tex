@@ -1,0 +1,61 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage{ctex}
+\usepackage{amsmath}%数学的库
+\usepackage{graphicx}%图片处理的库
+\usepackage[centerlast]{caption}
+\usepackage[bf, small]{titlesec}
+\usepackage[top = 1.0in, bottom = 1.0in, left = 1.0in, right = 1.0in]{geometry}
+
+\setlength{\parskip}{0.8\baselineskip}
+\setlength{\parindent}{2em}
+
+\title{Solution}
+\author{Hzy9819}
+
+\begin{document}
+\maketitle
+
+\section{A}
+\subsection{Description}
+给你一个数，将其四舍五入。
+\subsection{Solution}
+傻逼题。
+
+\section{B}
+\subsection{Description}
+解方程$ax+by=c$的任意非负整数解。
+
+a,b,c $<=$ $10^{18}$;
+\subsection{Solution}
+$exgcd$裸题。
+
+\section{C}
+\subsection{Descrition}
+给你一些人名和对应的一些电话号码，如果对于同一个人他的一个电话号码是另一个电话号码的后缀，则不输出。
+
+要你输出最终这些人的电话号码。
+\subsection{Solution}
+数据范围很小，直接暴力模拟。
+\section{D}
+\subsection{Description}
+一个人如果在m时间内有k个闹钟响起就会醒，给出n个闹钟的响起时间，保证响起时间不相同，问最少删除多少个闹钟可以使得这个人不醒。
+
+$n$ $<=$ $10^6$
+\subsection{Solution}
+排序后，从左往右，贪心的能不删就不删即可。
+
+\section{E}
+\subsection{Description}
+给你2n个数，要你修改最少的值，将他们变成n个平方数和n个非平方数。
+\subsection{Solution}
+计算出代价后排序即可。
+
+\section{F}
+\subsection{Description}
+给你一个数字串，要你加一个'+'和'='，使得该串变成一个等式且要保证划分之后数字没有前导0.
+
+串长 $<=$ $10^6$
+\subsection{Solution}
+用字符串hash判断是否相等即可。
+
+\end{document}

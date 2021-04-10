@@ -1,0 +1,29 @@
+digraph test075 {
+	d[label="075: hourglass with edge, n=3, +20 edges, NO" shape=box]
+	v1
+	v2
+	v3
+	v1 -> v2;
+	v3 -> v2;
+	v1 -> v2;
+	v1 -> v2;
+	v1 -> v2;
+	v3 -> v2;
+	v1 -> v2;
+	v3 -> v2;
+	v2 -> v1;
+	v1 -> v2;
+	v1 -> v2;
+	v3 -> v2;
+	v3 -> v2;
+	v3 -> v2;
+	v1 -> v2;
+	v2 -> v1;
+	v3 -> v2;
+	v1 -> v2;
+	v3 -> v1;
+	v1 -> v2;
+	v1 -> v2;
+	v2 -> v1;
+	v2 -> v1;
+}

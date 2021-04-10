@@ -1,0 +1,62 @@
+digraph test124 {
+	d[label="124: cycle with random distinct chords, n=20, +19 edges, YES" shape=box]
+	v1
+	v2
+	v3
+	v4
+	v5
+	v6
+	v7
+	v8
+	v9
+	v10
+	v11
+	v12
+	v13
+	v14
+	v15
+	v16
+	v17
+	v18
+	v19
+	v20
+	v1 -> v10;
+	v10 -> v15;
+	v20 -> v3;
+	v1 -> v7;
+	v7 -> v1;
+	v8 -> v2;
+	v12 -> v14;
+	v10 -> v19;
+	v19 -> v15;
+	v4 -> v12;
+	v15 -> v10;
+	v8 -> v1;
+	v11 -> v2;
+	v5 -> v9;
+	v17 -> v20;
+	v9 -> v8;
+	v16 -> v7;
+	v6 -> v17;
+	v14 -> v20;
+	v4 -> v16;
+	v13 -> v18;
+	v16 -> v4;
+	v18 -> v11;
+	v2 -> v6;
+	v12 -> v3;
+	v9 -> v5;
+	v14 -> v18;
+	v18 -> v13;
+	v3 -> v12;
+	v17 -> v6;
+	v15 -> v13;
+	v11 -> v19;
+	v2 -> v8;
+	v20 -> v14;
+	v3 -> v16;
+	v13 -> v17;
+	v19 -> v11;
+	v6 -> v5;
+	v7 -> v4;
+}

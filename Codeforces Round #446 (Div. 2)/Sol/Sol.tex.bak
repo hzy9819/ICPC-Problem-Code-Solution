@@ -1,0 +1,71 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage{ctex}
+\usepackage{amsmath}%数学的库
+\usepackage{graphicx}%图片处理的库
+\usepackage[centerlast]{caption}
+\usepackage[bf, small]{titlesec}
+\usepackage[top = 1.0in, bottom = 1.0in, left = 1.0in, right = 1.0in]{geometry}
+
+\setlength{\parskip}{0.8\baselineskip}
+\setlength{\parindent}{2em}
+
+\title{Solution}
+\author{Hzy9819}
+
+\begin{document}
+\maketitle
+
+\section{A}
+\subsection{Description}
+给定两个数列，询问第一个数列的数的和是否小于等于第二个数列最大值和次大值的和。
+
+\subsection{Solution}
+傻逼题。
+
+\section{B}
+\subsection{Description}
+$n$个人站成一列，第$i$个人可以杀掉前面$l$个人。杀人同时发生，问最后剩下多少人。
+
+$n$ $<=$ $10^6$
+\subsection{Solution}
+即区间求交，按左界排序更新答案即可。
+
+\section{C}
+\subsection{Description}
+给定一个长度为$n$的数列和一种操作，即将一个数变为它与它左边或右边的数的$gcd$，问最少进行多少次操作，将整个数列变为$1$。
+
+$n$ $<=$ $2000$
+\subsection{Solution}
+将一个数变为$1$之后不断与相邻的数操作即可，问题在于如何用最少操作数变出一个$1$。
+
+对于每个数，可以求出至少要进行几次操作才能变为$1$(向一个方向不断$gcd$即可)，取最小值即可。
+
+注意初始有$1$的情况。
+
+\section{D}
+\subsection{Description}
+给定一个不含相同数字的数列，求该数列的一个置换数列，使得两个数列的任意真子列和不相同。
+
+n <= 22
+
+\subsection{Solution}
+一种构造方式:将一个位置填上恰比他小的数，最小的位置填最大的数。
+
+这种构造显然可行:若不选最大数，则选出的子列必然比原数列小，反之，必然大。
+
+\section{E}
+\subsection{Description}
+给出一个n个点m条边的无向带边权联通图，以及q个边集，对于每个边集询问是否存在一棵最小生成树覆盖该边集。
+
+$n, m, \sum q_{i}$ $<=$ $5 * 10^{5}$
+
+\subsection{Solution}
+考虑$Kruskal$算法生成最小生成树的过程，可以的出一个显然的结论:处理完所有边权相同的边之后，不管如何选边，生成的联通块总相同。
+
+那么对于每个询问，我们只要分次判断边权相同的边是否可以同时加入即可(即边权不同的边互不干扰)。
+
+那么我们将询问离线，按边权不断加入边，维护当前的联通状态，加入边权相同的边判断是否可以同时加入(不能形成环)。
+
+通过时间戳可实现一个可持久化的并查集。
+
+\end{document}

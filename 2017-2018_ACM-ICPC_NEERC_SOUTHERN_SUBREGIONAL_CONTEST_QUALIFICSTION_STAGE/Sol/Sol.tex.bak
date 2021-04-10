@@ -1,0 +1,109 @@
+\documentclass[7pt, a4paper]{article}
+\usepackage{ctex}
+\usepackage{amsmath}%数学的库
+\usepackage{graphicx}%图片处理的库
+\usepackage[centerlast]{caption}
+\usepackage[bf, small]{titlesec}
+\usepackage[top = 1.0in, bottom = 1.0in, left = 1.0in, right = 1.0in]{geometry}
+
+\setlength{\parskip}{0.5\baselineskip}
+\setlength{\parindent}{2em}
+
+\title{Solution}
+\author{$BasicLaw$}
+
+\begin{document}
+\maketitle
+\section{A}
+\subsection{Description}
+以给出前驱后继的方式给出若干条链，以任意顺序合成一条链。
+\subsection{Solution}
+签到题。
+
+\section{B}
+\subsection{Description}
+给定一个数列，保证没有相同的数，每次删除比左边所有的数大的数，直到全部删除，求删除顺序。
+\subsection{Solution}
+可以发现一个数第几轮删除即其最长不下降子序列长度，$Dp$一下即可。
+
+\section{C}
+\subsection{Description}
+构造一个长度为$2n$的括号序列，满足嵌套的括号总数为$k$。
+\subsection{Solution}
+嵌套括号最大数为$\frac{n*(n-1)}{2}$，$Impossible$的情况可以很好判断。
+
+考虑一种可行的构造方案：记录当前所在的括号层数，可以得出在此层加括号的贡献，那么每次能加就加，不能加就退出当前层（输出“)”）。
+
+\section{D}
+\subsection{Description}
+数轴$1 \sim n$位置分别放有食物，其中位置为$i$的食物至少要$t_{i}$时刻才能吃。
+
+狗从$0$位置出发，每次向右移动花费$1$时间，可以选择原地等待，吃食物不花费时间，不能往左移动，问$T$时间内最多吃多少食物。
+\subsection{Solution}
+分别求出狗最终停在$k$($1 <= k <= n$)位置的最大答案，取最大值即可。
+
+考虑位置为$i$的食物能被吃的条件是等待时间至少为$t_{i} - i$，所以统计每个点之前$t_{i} - i$小于等于$T - k$的数目即可。
+
+\section{E}
+\subsection{Description}
+给一行形如$*..P$的字符串，每个单位时间所有P可以向相邻位置移动一次，求最小时间使所有$*$所在位置都被$P$的路径覆盖
+\subsection{Solution}
+二分时间，从左向右贪心判断。
+
+贪心:第一个$P$左边的$*$一定由P覆盖，由此可以算出第一个$P$向右可覆盖的最大长度，从而确定下一个未被覆盖的$*$，既而计算出第二个$P$的覆盖区间，以此类推。
+
+\section{F}
+\subsection{Description}
+$n$个候选人选出$k$个，$m$票已确定前$a$票，确定每个人的为必选上或可能选上或不可能选上。
+
+候选人以票数为第一关键字，最后一票的投票次序为第二关键字排序（即票数越多越好，票数一样则最后一票最早投越好）
+\subsection{Solution}
+考虑第$i$个人，如果最坏情况仍选上，则必选上；如果最优情况扔选不上，则必落选；否则，两者均有可能（最优最坏的具体方案请读者自行考虑）
+
+\section{G}
+\subsection{Description}
+给出$n$个人一天$7$节课是否有课，问最多多少人同时有课。
+\subsection{Solution}
+傻逼题。
+
+\section{H}
+\subsection{Description}
+给出一个数列，你可以将其中的任意数增加，问最小的增加量，使其变成先严格单调递增后严格单调递减的数列。
+\subsection{Solution}
+可以贪心地求出将$1 \sim k$的数列修改为严格单调递增的最小花费与此时k位置数的值。
+
+那么将数列反转后重复此操作，枚举峰值位置合并答案即可。
+
+\section{I}
+\subsection{Description}
+$n*m$四连通方格,有些格不能传递噪音,有些格上有噪音源(噪音值为$x$),格子$p$收一个噪音源$q$的噪音为$\frac{xq}{2^{dis(p,q)}}$,总噪音为各噪音源传递值之和,噪音源也可以收到其他源的噪音.总噪音超过$P$的格子数.
+\subsection{Solution}
+BFS
+
+\section{J}
+\subsection{Description}
+$n$个点$m$条边的无向图,现在把每一条边变为有向边,求一种改变方式,使入度最大的点入度尽可能小.输出最小入度.
+\subsection{Solution}
+把每条边拆为一个点加两条边,每条边容量$1$,$S$ $->$ 新点容量$2$,原来$n$个点 $->$ $T$容量$k$,二分$k$.
+
+\section{K}
+\subsection{Description}
+定义一段行程(出发地,结束地)为$A$ $->$ $B$,若$A$ $->$ $B$上一段行程结束地为$A$,则$w(A->B)$ $=$ $b$,否则$w(A->B)$ $=$ $a$.还可以买数量不超过$k$的卡,一张花费$f$,使行程$w(A->B)$ $=$ $0$ 和$w(B->A)$ $=$ $0$. 现在有$n$段行程,求最小花费.
+\subsection{Solution}
+先求出不用卡的$\sum w$,再求用每一张卡后减小的花费,排序取前$k$个(或使花费降低的前若干个)即可.
+
+\section{L}
+\subsection{Description}
+给你一棵树，给出每个点的子树，要你还原整棵树($n$ $<=$ $1000$)。
+\subsection{Solution}
+考虑两个点相邻，则他们的子树和为整棵树。
+
+那么把他们的子树$hash$(点的存在状态为$01$串)一下，用$map$存起来，点和点是否相邻则为$O(logn)$级别的，总复杂度$O(n^{2}logn)$
+
+\section{M}
+\subsection{Description}
+给出一个数列，若它为等差数列则输出它的下一项，不然输出最后一项。
+\subsection{Solution}
+傻逼题。
+
+\end{document}

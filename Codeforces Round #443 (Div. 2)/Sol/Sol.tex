@@ -1,0 +1,69 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage{ctex}
+\usepackage{amsmath}%数学的库
+\usepackage{graphicx}%图片处理的库
+\usepackage[centerlast]{caption}
+\usepackage[bf, small]{titlesec}
+\usepackage[top = 1.0in, bottom = 1.0in, left = 1.0in, right = 1.0in]{geometry}
+
+\setlength{\parskip}{0.8\baselineskip}
+\setlength{\parindent}{2em}
+
+\title{Solution}
+\author{Hzy9819}
+
+\begin{document}
+\maketitle
+
+\section{Tips}
+这一场出的题好难写啊，特别容易WA，还好没打。
+\section{A}
+\subsection{Description}
+有n个医生，第i个医生只在第$s_i$, $s_i$ + $d_i$, $s_i$ + 2 * $d_i$...天工作，你现在要按顺序看医生，且一天只能看一个医生，问你最少要几天才能看完医生。
+
+$n <= 1000$
+\subsection{Solution}
+按公式求出当前下一次看医生是第几天，注意当前天数正好是下一医生工作的情况。
+\section{B}
+\subsection{Description}
+有$n$个人站成一列，每次列首的两个人比赛，权值大的人会赢，输的人站到列尾，第一个赢得k次的人获得比赛的胜利，给出每个人的权值，保证互不相同，问最终权值为多少的人会赢。
+
+$n <= 500$, $k <= 10^{12}$.
+\subsection{Solution}
+扫一遍过去即可，略坑，注意统计一个人赢得次数时要记上前一个人与他比赛的次数。
+
+\section{C}
+\subsection{Description}
+给出$n$个位运算($and, or, xor$)，第i次的运算数为$x_i$，用最多$5$次位运算代替。
+
+$n <= 5 * 10^5$, $x_i <= 1023$.
+\subsection{Solution}
+类似某道$NOI$题，对于每个位进行位运算的复合即可。
+\section{D}
+\subsection{Description}
+给定一个长度为$n$的串，复制成$m$个拼接在一起，其中每$k$相同的字符会消去(大于$k$个也只消去$k$个)，可以证明最终结果与消去顺序无关，问最后剩下多少个字符。
+
+$n <= 10^5$, $k <= 10^9$, $m <= 10^9$.
+\subsection{Solution}
+讨论情况较多，大致思路如下：
+
+先将初始串分成块的形式(相同字符一块)，首尾进行匹配，若全部可以消去，则结果要么不剩字符，要么剩一个初始串。
+
+若无法全部消去，那么结果必然是($m-2$)个消去首位的串加上两个分别消去首和尾的串。
+
+注意初始分块的时候也要进行消去操作。
+\section{E}
+\subsection{Description}
+有$n$个人参加运动会，总共有$k$个项目，每次可以选择两个人选择任意一个项目比赛，该项目权值大的人会赢，输的人离开，最后剩下的人为赢家。分别输出前$1 \sim n$个人参加比赛时，有几个人可能赢。
+
+$n <= 5 * 10^4$, $k <= 10$.
+\subsection{Solution}
+考虑将人当作点，若一个人可以赢另一个人的话就连一条边，可以发现将这个有向图缩点后第一个强连通分量里的所有点可能赢。
+
+那么每次加一个点进去，即将若干个强连通分量合并即可。
+
+对于每个强连通分量的权值(最大最小值)进行维护，每次二分查找即可($set$维护)。
+
+复杂度$O(nklogn)$
+
+\end{document}

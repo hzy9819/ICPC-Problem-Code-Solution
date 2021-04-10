@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://www.jisuanke.com/contest/1264/69004 -->
+<html lang="zh-cmn-Hans" class="js cssanimations"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>.blocklyDraggable {}
+.blocklySvg {
+background-color: #fff;
+outline: none;
+overflow: hidden;
+position: absolute;
+display: block;
+}
+.blocklyWidgetDiv {
+display: none;
+position: absolute;
+z-index: 99999;
+}
+.injectionDiv {
+height: 100%;
+position: relative;
+overflow: hidden;
+touch-action: none
+}
+.blocklyNonSelectable {
+user-select: none;
+-moz-user-select: none;
+-webkit-user-select: none;
+-ms-user-select: none;
+}
+.blocklyWsDragSurface {
+display: none;
+position: absolute;
+top: 0;
+left: 0;
+}
+.blocklyWsDragSurface.blocklyOverflowVisible {
+overflow: visible;
+}
+.blocklyBlockDragSurface {
+display: none;
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+overflow: visible !important;
+z-index: 50;
+}
+.blocklyTooltipDiv {
+background-color: #ffffc7;
+border: 1px solid #ddc;
+box-shadow: 4px 4px 20px 1px rgba(0,0,0,.15);
+color: #000;
+display: none;
+font-family: sans-serif;
+font-size: 9pt;
+opacity: 0.9;
+padding: 2px;
+position: absolute;
+z-index: 100000;
+}
+.blocklyResizeSE {
+cursor: se-resize;
+fill: #aaa;
+}
+.blocklyResizeSW {
+cursor: sw-resize;
+fill: #aaa;
+}
+.blocklyResizeLine {
+stroke: #888;
+stroke-width: 1;
+}
+.blocklyHighlightedConnectionPath {
+fill: none;
+stroke: #fc3;
+stroke-width: 4px;
+}
+.blocklyPathLight {
+fill: none;
+stroke-linecap: round;
+stroke-width: 1;
+}
+.blocklySelected>.blocklyPath {
+stroke: #fc3;
+stroke-width: 3px;
+}
+.blocklySelected>.blocklyPathLight {
+display: none;
+}
+.blocklyDraggable {
+cursor: url("//res.jisuanke.com/img/blockly/handopen.cur"), auto;
+cursor: grab;
+cursor: -webkit-grab;
+cursor: -moz-grab;
+}
+.blocklyDragging {
+cursor: url("//res.jisuanke.com/img/blockly/handclosed.cur"), auto;
+cursor: grabbing;
+cursor: -webkit-grabbing;
+cursor: -moz-grabbing;
+}
+.blocklyDraggable:active {
+cursor: url("//res.jisuanke.com/img/blockly/handclosed.cur"), auto;
+cursor: grabbing;
+cursor: -webkit-grabbing;
+cursor: -moz-grabbing;
+}
+.blocklyBlockDragSurface .blocklyDraggable {
+cursor: url("//res.jisuanke.com/img/blockly/handclosed.cur"), auto;
+cursor: grabbing;
+cursor: -webkit-grabbing;
+cursor: -moz-grabbing;
+}
+.blocklyDragging.blocklyDraggingDelete {
+cursor: url("//res.jisuanke.com/img/blockly/handdelete.cur"), auto;
+}
+.blocklyToolboxDelete {
+cursor: url("//res.jisuanke.com/img/blockly/handdelete.cur"), auto;
+}
+.blocklyDragging>.blocklyPath,
+.blocklyDragging>.blocklyPathLight {
+fill-opacity: .8;
+stroke-opacity: .8;
+}
+.blocklyDragging>.blocklyPathDark {
+display: none;
+}
+.blocklyDisabled>.blocklyPath {
+fill-opacity: .5;
+stroke-opacity: .5;
+}
+.blocklyDisabled>.blocklyPathLight,
+.blocklyDisabled>.blocklyPathDark {
+display: none;
+}
+.blocklyText {
+cursor: default;
+fill: #fff;
+font-family: sans-serif;
+font-size: 11pt;
+}
+.blocklyNonEditableText>text {
+pointer-events: none;
+}
+.blocklyNonEditableText>rect,
+.blocklyEditableText>rect {
+fill: #fff;
+fill-opacity: .6;
+}
+.blocklyNonEditableText>text,
+.blocklyEditableText>text {
+fill: #000;
+}
+.blocklyEditableText:hover>rect {
+stroke: #fff;
+stroke-width: 2;
+}
+.blocklyBubbleText {
+fill: #000;
+}
+.blocklyFlyout {
+position: absolute;
+z-index: 20;
+}
+.blocklyFlyoutButton {
+fill: #888;
+cursor: default;
+}
+.blocklyFlyoutButtonShadow {
+fill: #666;
+}
+.blocklyFlyoutButton:hover {
+fill: #aaa;
+}
+.blocklyFlyoutLabel {
+cursor: default;
+}
+.blocklyFlyoutLabelBackground {
+opacity: 0;
+}
+.blocklyFlyoutLabelText {
+fill: #000;
+}
+.blocklySvg text, .blocklyBlockDragSurface text {
+user-select: none;
+-moz-user-select: none;
+-webkit-user-select: none;
+cursor: inherit;
+}
+.blocklyHidden {
+display: none;
+}
+.blocklyFieldDropdown:not(.blocklyHidden) {
+display: block;
+}
+.blocklyIconGroup {
+cursor: default;
+}
+.blocklyIconGroup:not(:hover),
+.blocklyIconGroupReadonly {
+opacity: .6;
+}
+.blocklyIconShape {
+fill: #00f;
+stroke: #fff;
+stroke-width: 1px;
+}
+.blocklyIconSymbol {
+fill: #fff;
+}
+.blocklyMinimalBody {
+margin: 0;
+padding: 0;
+}
+.blocklyCommentTextarea {
+background-color: #ffc;
+border: 0;
+margin: 0;
+padding: 2px;
+resize: none;
+}
+.blocklyHtmlInput {
+border: none;
+border-radius: 4px;
+font-family: sans-serif;
+height: 100%;
+margin: 0;
+outline: none;
+padding: 0 1px;
+width: 100%
+}
+.blocklyMainBackground {
+stroke-width: 1;
+stroke: #c6c6c6;
+}
+.blocklyMutatorBackground {
+fill: #fff;
+stroke: #ddd;
+stroke-width: 1;
+}
+.blocklyFlyoutBackground {
+fill: #ddd;
+fill-opacity: .8;
+}
+.blocklyTransparentBackground {
+opacity: 0;
+}
+.blocklyMainWorkspaceScrollbar {
+z-index: 20;
+}
+.blocklyFlyoutScrollbar {
+z-index: 30;
+}
+.blocklyScrollbarHorizontal, .blocklyScrollbarVertical {
+position: absolute;
+outline: none;
+}
+.blocklyScrollbarBackground {
+opacity: 0;
+}
+.blocklyScrollbarHandle {
+fill: #ccc;
+}
+.blocklyScrollbarBackground:hover+.blocklyScrollbarHandle,
+.blocklyScrollbarHandle:hover {
+fill: #bbb;
+}
+.blocklyZoom>image {
+opacity: .4;
+}
+.blocklyZoom>image:hover {
+opacity: .6;
+}
+.blocklyZoom>image:active {
+opacity: .8;
+}
+.blocklyFlyout .blocklyScrollbarHandle {
+fill: #bbb;
+}
+.blocklyFlyout .blocklyScrollbarBackground:hover+.blocklyScrollbarHandle,
+.blocklyFlyout .blocklyScrollbarHandle:hover {
+fill: #aaa;
+}
+.blocklyInvalidInput {
+background: #faa;
+}
+.blocklyAngleCircle {
+stroke: #444;
+stroke-width: 1;
+fill: #ddd;
+fill-opacity: .8;
+}
+.blocklyAngleMarks {
+stroke: #444;
+stroke-width: 1;
+}
+.blocklyAngleGauge {
+fill: #f88;
+fill-opacity: .8;
+}
+.blocklyAngleLine {
+stroke: #f00;
+stroke-width: 2;
+stroke-linecap: round;
+pointer-events: none;
+}
+.blocklyContextMenu {
+border-radius: 4px;
+}
+.blocklyDropdownMenu {
+padding: 0 !important;
+}
+.blocklyWidgetDiv .goog-option-selected .goog-menuitem-checkbox,
+.blocklyWidgetDiv .goog-option-selected .goog-menuitem-icon {
+background: url(//res.jisuanke.com/img/blockly/sprites.png) no-repeat -48px -16px !important;
+}
+.blocklyToolboxDiv {
+background-color: #ddd;
+overflow-x: visible;
+overflow-y: auto;
+position: absolute;
+z-index: 70;
+-webkit-tap-highlight-color: transparent;
+}
+.blocklyTreeRoot {
+padding: 4px 0;
+}
+.blocklyTreeRoot:focus {
+outline: none;
+}
+.blocklyTreeRow {
+height: 22px;
+line-height: 22px;
+margin-bottom: 3px;
+padding-right: 8px;
+white-space: nowrap;
+}
+.blocklyHorizontalTree {
+float: left;
+margin: 1px 5px 8px 0;
+}
+.blocklyHorizontalTreeRtl {
+float: right;
+margin: 1px 0 8px 5px;
+}
+.blocklyToolboxDiv[dir="RTL"] .blocklyTreeRow {
+margin-left: 8px;
+}
+.blocklyTreeRow:not(.blocklyTreeSelected):hover {
+background-color: #e4e4e4;
+}
+.blocklyTreeSeparator {
+border-bottom: solid #e5e5e5 1px;
+height: 0;
+margin: 5px 0;
+}
+.blocklyTreeSeparatorHorizontal {
+border-right: solid #e5e5e5 1px;
+width: 0;
+padding: 5px 0;
+margin: 0 5px;
+}
+.blocklyTreeIcon {
+background-image: url(//res.jisuanke.com/img/blockly/sprites.png);
+height: 16px;
+vertical-align: middle;
+width: 16px;
+}
+.blocklyTreeIconClosedLtr {
+background-position: -32px -1px;
+}
+.blocklyTreeIconClosedRtl {
+background-position: 0px -1px;
+}
+.blocklyTreeIconOpen {
+background-position: -16px -1px;
+}
+.blocklyTreeSelected>.blocklyTreeIconClosedLtr {
+background-position: -32px -17px;
+}
+.blocklyTreeSelected>.blocklyTreeIconClosedRtl {
+background-position: 0px -17px;
+}
+.blocklyTreeSelected>.blocklyTreeIconOpen {
+background-position: -16px -17px;
+}
+.blocklyTreeIconNone,
+.blocklyTreeSelected>.blocklyTreeIconNone {
+background-position: -48px -1px;
+}
+.blocklyTreeLabel {
+cursor: default;
+font-family: sans-serif;
+font-size: 16px;
+padding: 0 3px;
+vertical-align: middle;
+}
+.blocklyToolboxDelete .blocklyTreeLabel {
+cursor: url("//res.jisuanke.com/img/blockly/handdelete.cur"), auto;
+}
+.blocklyTreeSelected .blocklyTreeLabel {
+color: #fff;
+}
+.blocklyWidgetDiv .goog-palette {
+outline: none;
+cursor: default;
+}
+.blocklyWidgetDiv .goog-palette-table {
+border: 1px solid #666;
+border-collapse: collapse;
+}
+.blocklyWidgetDiv .goog-palette-cell {
+height: 13px;
+width: 15px;
+margin: 0;
+border: 0;
+text-align: center;
+vertical-align: middle;
+border-right: 1px solid #666;
+font-size: 1px;
+}
+.blocklyWidgetDiv .goog-palette-colorswatch {
+position: relative;
+height: 13px;
+width: 15px;
+border: 1px solid #666;
+}
+.blocklyWidgetDiv .goog-palette-cell-hover .goog-palette-colorswatch {
+border: 1px solid #FFF;
+}
+.blocklyWidgetDiv .goog-palette-cell-selected .goog-palette-colorswatch {
+border: 1px solid #000;
+color: #fff;
+}
+.blocklyWidgetDiv .goog-menu {
+background: #fff;
+border-color: #ccc #666 #666 #ccc;
+border-style: solid;
+border-width: 1px;
+cursor: default;
+font: normal 13px Arial, sans-serif;
+margin: 0;
+outline: none;
+padding: 4px 0;
+position: absolute;
+overflow-y: auto;
+overflow-x: hidden;
+max-height: 100%;
+z-index: 20000;
+}
+.blocklyWidgetDiv .goog-menuitem {
+color: #000;
+font: normal 13px Arial, sans-serif;
+list-style: none;
+margin: 0;
+padding: 4px 7em 4px 28px;
+white-space: nowrap;
+}
+.blocklyWidgetDiv .goog-menuitem.goog-menuitem-rtl {
+padding-left: 7em;
+padding-right: 28px;
+}
+.blocklyWidgetDiv .goog-menu-nocheckbox .goog-menuitem,
+.blocklyWidgetDiv .goog-menu-noicon .goog-menuitem {
+padding-left: 12px;
+}
+.blocklyWidgetDiv .goog-menu-noaccel .goog-menuitem {
+padding-right: 20px;
+}
+.blocklyWidgetDiv .goog-menuitem-content {
+color: #000;
+font: normal 13px Arial, sans-serif;
+}
+.blocklyWidgetDiv .goog-menuitem-disabled .goog-menuitem-accel,
+.blocklyWidgetDiv .goog-menuitem-disabled .goog-menuitem-content {
+color: #ccc !important;
+}
+.blocklyWidgetDiv .goog-menuitem-disabled .goog-menuitem-icon {
+opacity: 0.3;
+-moz-opacity: 0.3;
+filter: alpha(opacity=30);
+}
+.blocklyWidgetDiv .goog-menuitem-highlight,
+.blocklyWidgetDiv .goog-menuitem-hover {
+background-color: #d6e9f8;
+border-color: #d6e9f8;
+border-style: dotted;
+border-width: 1px 0;
+padding-bottom: 3px;
+padding-top: 3px;
+}
+.blocklyWidgetDiv .goog-menuitem-checkbox,
+.blocklyWidgetDiv .goog-menuitem-icon {
+background-repeat: no-repeat;
+height: 16px;
+left: 6px;
+position: absolute;
+right: auto;
+vertical-align: middle;
+width: 16px;
+}
+.blocklyWidgetDiv .goog-menuitem-rtl .goog-menuitem-checkbox,
+.blocklyWidgetDiv .goog-menuitem-rtl .goog-menuitem-icon {
+left: auto;
+right: 6px;
+}
+.blocklyWidgetDiv .goog-option-selected .goog-menuitem-checkbox,
+.blocklyWidgetDiv .goog-option-selected .goog-menuitem-icon {
+background: url(//ssl.gstatic.com/editor/editortoolbar.png) no-repeat -512px 0;
+}
+.blocklyWidgetDiv .goog-menuitem-accel {
+color: #999;
+direction: ltr;
+left: auto;
+padding: 0 6px;
+position: absolute;
+right: 0;
+text-align: right;
+}
+.blocklyWidgetDiv .goog-menuitem-rtl .goog-menuitem-accel {
+left: 0;
+right: auto;
+text-align: left;
+}
+.blocklyWidgetDiv .goog-menuitem-mnemonic-hint {
+text-decoration: underline;
+}
+.blocklyWidgetDiv .goog-menuitem-mnemonic-separator {
+color: #999;
+font-size: 12px;
+padding-left: 4px;
+}
+.blocklyWidgetDiv .goog-menuseparator {
+border-top: 1px solid #ccc;
+margin: 4px 0;
+padding: 0;
+}
+</style>
+        
+
+<!-- No Baidu Siteapp-->
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- Set render engine for 360 browser -->
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>抽球游戏 - 计蒜客</title>
+    <link rel="stylesheet" href="./抽球游戏 - 计蒜客_files/jsk-widget--b788eb.css">    <link rel="stylesheet" href="./抽球游戏 - 计蒜客_files/pack--876c85.css">    <script src="./抽球游戏 - 计蒜客_files/hm.js"></script><script>
+                                       var statistics = {};
+                                       statistics.fpt = Date.now() - performance.timing.navigationStart
+                                   </script></head>
+<body class="jsk-with-topbar-fixed-top">
+    <!--[if lte IE 9]>
+    <script>location.href='//www.jisuanke.com/601'</script>
+<![endif]-->
+<div class="global-alert" id="global-alert">
+    <div id="global-alert-box" class="jsk-alert jsk-alert-danger jsk-u-sm-centered alert" data-jsk-alert="">
+      <button type="button" class="jsk-close">
+          <i class="jsk-icon-close"></i>
+      </button>
+      <p id="global-alert-msg" class="jsk-icon-info-circle"></p>
+    </div>
+</div>
+<header class="jsk-topbar jsk-topbar-fixed-top">
+    <div class="jsk-container">
+        <h1 class="jsk-topbar-brand jsk-margin-right-lg">
+            <a href="https://www.jisuanke.com/">计蒜客</a>
+        </h1>
+        <div id="jsk-nav-bar" class="jsk-text-center jsk-hide-sm">
+            <ul class="jsk-topbar-nav">
+                <li class="jsk-dropdown" data-jsk-dropdown="">
+                    <a href="javascript: void(0)" class="jsk-dropdown-toggle" data-jsk-dropdown-toggle="">全部课程 <i class="jsk-icon-caret-down jsk-margin-right-0"></i></a>
+                    <div class="jsk-dropdown-content">
+                        <div class="jsk-dropdown-radius-wrapper">
+                            <ul class="jsk-text-sm">
+                                <li><a href="https://www.jisuanke.com/course"><i class="jsk-icon-graduation-cap jsk-icon-fw"></i>专业课程</a></li>
+                                <li><a href="https://www.jisuanke.com/minicourse"><i class="jsk-icon-wrench jsk-icon-fw"></i>技能微课</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="https://www.jisuanke.com/plan">学习计划</a></li>
+                <li><a href="https://nanti.jisuanke.com/">题库</a></li>
+                <li><a href="https://nanti.jisuanke.com/contest">比赛</a></li>
+                            </ul>
+        </div>
+        <div class="jsk-topbar-right jsk-topbar-info jsk-margin-right-0">
+                        <span class="jsk-fr jsk-hide-sm jsk-margin-top-xs">
+                <div class="jsk-dropdown" id="username">
+                    <a class="jsk-dropdown-toggle user-select-disabled">
+                        <img src="./抽球游戏 - 计蒜客_files/0.jpg" alt="" class="jsk-circle" width="40" height="40">
+                        <span class="jsk-padding-left-xs jsk-text-sm jsk-show-lg-only">
+                            Lesphere <i class="jsk-icon-caret-down"></i>
+                        </span>
+                    </a>
+                    <div class="jsk-dropdown-content">
+                        <div class="jsk-dropdown-radius-wrapper">
+                            <ul class="jsk-text-sm">
+                                <li><a href="https://i.jisuanke.com/u/mz39fhn" target="_blank"><i class="jsk-icon-home jsk-icon-fw"></i> 我的主页</a></li>
+                                <li class="jsk-divider"></li>
+                                                                <li><a href="https://i.jisuanke.com/setting/account/charge" target="_blank"><i class="jsk-icon-rmb jsk-icon-fw"></i> 充值管理</a></li>
+                                <li><a href="https://i.jisuanke.com/setting/basic" target="_blank"><i class="jsk-icon-gear jsk-icon-fw"></i> 账号设置</a></li>
+                                <li><a href="https://i.jisuanke.com/setting/invite" target="_blank"><i class="jsk-icon-share-alt jsk-icon-fw"></i> 邀请好友</a></li>
+                                <li class="jsk-divider"></li>
+                                <li class="jsk-text-center"><a href="https://passport.jisuanke.com/auth/logout">退出</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <span class="jsk-text-gray-lighter jsk-margin-left-sm">|</span>
+                <div class="jsk-dropdown jsk-padding-left" id="notifications">
+                    <a class="jsk-dropdown-toggle topbar-avatar" data-href="//i.jisuanke.com/notifications">
+                        <i class="jsk-icon-bell"></i>
+                        <span class="jsk-badge jsk-badge-danger jsk-round jsk-padding-vertical-0 count" style="display: none">0</span>
+                    </a>
+                    <div class="jsk-dropdown-content topbar-notification">
+                        <ul class="notifications-list jsk-list jsk-list-striped jsk-padding-0 jsk-radius jsk-text-sm">
+                            <div class="jsk-padding-top-lg jsk-text-center">消息加载请求中...</div>
+                        </ul>
+                        <div class="empty-placeholder">
+                            <div class="jsk-text-center">您暂时没有新的消息</div>
+                        </div>
+                        <a href="https://i.jisuanke.com/notifications" class="more jsk-text-center jsk-text-sm jsk-radius-bottom">查看全部消息 <i class="jsk-icon-angle-double-right"></i></a>
+                    </div>
+                </div>
+            </span>
+                    </div>
+    </div>
+</header>
+    <div class="mask" id="loading-mask" style="display: none;"></div>
+    <div class="jsk-container jsk-container-sm">
+        <div id="top-panel" class="jsk-panel jsk-margin-top-0 jsk-margin-bottom jsk-mobile-margin-0 jsk-text-sm top-panel">
+    <div class="top-panel-left">
+        <a class="jsk-icon-home top-panel-btn top-panel-icon-btn top-panel-btn-left" href="https://www.jisuanke.com/contest/1264" title="返回 SenseTime Ace Coder Challenge 暨 商汤在线编程挑战赛* 主页"></a>
+                        <a href="https://www.jisuanke.com/contest/1264/69003" class="jsk-icon-angle-left top-panel-btn top-panel-icon-btn"></a>
+                <div class="jsk-dropdown" data-jsk-dropdown="{ maxHeight: &#39;60%&#39; }">
+            <a class="jsk-active jsk-dropdown-toggle top-panel-btn jsk-padding-left jsk-padding-right-sm jsk-text-truncate">抽球游戏<i class="jsk-icon jsk-icon-caret-down jsk-icon-fw"></i></a>
+                        <div class="jsk-dropdown-content">
+                <div class="jsk-dropdown-radius-wrapper" style="max-height: 552.6px;">
+                    <ul style="max-height: 552.6px;">
+                                                                                                                                                                                                <li>
+                                    <a href="https://www.jisuanke.com/contest/1264/69002">双人取数</a>
+                                </li>
+                                                                                                                                                                                                                                        <li>
+                                    <a href="https://www.jisuanke.com/contest/1264/69003">我觉得海星</a>
+                                </li>
+                                                                                                                                                                                                                                        <li class="jsk-active">
+                                    <a>抽球游戏</a>
+                                </li>
+                                                                                                                                                                                                                                        <li>
+                                    <a href="https://www.jisuanke.com/contest/1264/69005">最小？最大！</a>
+                                </li>
+                                                                                                                                                                                                                                        <li>
+                                    <a href="https://www.jisuanke.com/contest/1264/69006">反函数求解</a>
+                                </li>
+                                                                                                                                                                                                                                        <li>
+                                    <a href="https://www.jisuanke.com/contest/1264/69007">归并排序</a>
+                                </li>
+                                                                                                                                                                                                                                        <li>
+                                    <a href="https://www.jisuanke.com/contest/1264/69008">危险路径</a>
+                                </li>
+                                                                                                                
+                                            </ul>
+                </div>
+            </div>
+        </div>
+                <a href="https://www.jisuanke.com/contest/1264/69005" class="jsk-icon-angle-right top-panel-btn top-panel-icon-btn"></a>
+            </div>
+
+        <div class="top-panel-right">
+                <a class="jsk-fr jsk-link-muted jsk-padding-horizontal top-panel-question-btn" href="https://wenda.jisuanke.com/contest/1264?tag=%E6%8A%BD%E7%90%83%E6%B8%B8%E6%88%8F" target="_blank">
+            <i class="jsk-icon-question-circle"></i>问答
+        </a>
+    </div>
+    
+    <div class="jsk-text-center jsk-text-xs jsk-text-gray-light jsk-hide-sm">
+        </div>
+</div>
+        <div class="jsk-panel jsk-margin-top-0 container" id="container" style="height: 782px;">
+    <div class="jsk-panel-bd jsk-g jsk-padding-0" style="height: 695px;">
+        <div class="jsk-u-sm-12 jsk-u-md-4 jsk-u-lg-4" id="guide" style="overflow-y: auto;">
+            <div class="jsk-padding-top guide-content">
+                <button id="description-fullscreen" class="jsk-btn jsk-btn-xs jsk-btn-primary
+                           jsk-padding-xs jsk-padding-horizontal-sm
+                           jsk-margin-negative-xs jsk-fr fullscreen-btn">只看题面</button>
+                <ul class="jsk-avg-sm-2 jsk-text-sm" id="problem-data">
+                    <li>
+                        <i class="jsk-margin-right-0 jsk-icon-clock-o jsk-icon-fw"></i>
+                        <span data-jsk-popover="{content: &#39;时间限制&#39;, trigger: &#39;hover focus&#39;, theme: &#39;sm&#39;}">2000ms</span>
+                    </li>
+                    <li>
+                        <i class="jsk-margin-right-0 jsk-icon-th jsk-icon-fw"></i>
+                        <span data-jsk-popover="{content: &#39;内存限制&#39;, trigger: &#39;hover focus&#39;, theme: &#39;sm&#39;}">262144K</span>
+                    </li>
+                </ul>
+                <div>
+                    <p class="print-title">抽球游戏</p>
+                </div>
+                <div class="jsk-margin-top" id="description">
+                    <p>Anthony 手中有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> 个依次标着整数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">a_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">a_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>⋯</mo></mrow><annotation encoding="application/x-tex">\cdots</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.31em;"></span><span class="strut bottom" style="height:0.31em;vertical-align:0em;"></span><span class="base"><span class="minner">⋯</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">a_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base"><span class="mord"><span class="mord mathit">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mo>≤</mo><msub><mi>a</mi><mn>1</mn></msub><mo>≤</mo><msub><mi>a</mi><mn>2</mn></msub><mo>≤</mo><mo>⋯</mo><mo>≤</mo><msub><mi>a</mi><mi>n</mi></msub><mo>≤</mo><mn>6</mn><mn>3</mn></mrow><annotation encoding="application/x-tex">0 \leq a_1 \leq a_2 \leq \cdots \leq a_n \leq 63</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.79444em;vertical-align:-0.15em;"></span><span class="base"><span class="mord mathrm">0</span><span class="mrel">≤</span><span class="mord"><span class="mord mathit">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mrel">≤</span><span class="mord"><span class="mord mathit">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mrel">≤</span><span class="minner">⋯</span><span class="mrel">≤</span><span class="mord"><span class="mord mathit">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mrel">≤</span><span class="mord mathrm">6</span><span class="mord mathrm">3</span></span></span></span>) 的球，现在 Ben 会等概率随机抽出一个球，记录球上的数字并放回，重复该过程三次，最终三次记录下的数字的异或和就是 Ben 的得分。</p><p>经过非常非常多次游戏之后，Ben 分析出了得分的概率分布情况，你需要根据这个概率分布情况推测出 Anthony 手中的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span> 个球上的数字，或者指出 Ben 的记录有误。</p><h3>输入格式</h3><p>第一行包含一个正整数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">T</span></span></span></span>，表示有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">T</span></span></span></span> 组测试数据。</p><p>接下来依次描述 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>T</mi></mrow><annotation encoding="application/x-tex">T</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.13889em;">T</span></span></span></span> 组测试数据。对于每组测试数据：</p><p>第一行包含一个正整数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">n</span></span></span></span>，表示 Anthony 手中球的数量。</p><p>第二行包含 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>6</mn><mn>4</mn></mrow><annotation encoding="application/x-tex">64</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.64444em;vertical-align:0em;"></span><span class="base"><span class="mord mathrm">6</span><span class="mord mathrm">4</span></span></span></span> 个整数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mn>0</mn></msub><mo separator="true">,</mo><msub><mi>p</mi><mn>1</mn></msub><mo separator="true">,</mo><mo>⋯</mo><mo separator="true">,</mo><msub><mi>p</mi><mrow><mn>6</mn><mn>3</mn></mrow></msub></mrow><annotation encoding="application/x-tex">p_0, p_1, \cdots, p_{63}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mpunct">,</span><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mpunct">,</span><span class="minner">⋯</span><span class="mpunct">,</span><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathrm mtight">6</span><span class="mord mathrm mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span>，其中 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>p</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">p_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span></span></span></span> 表示 Ben 的得分为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">i</span></span></span></span> 的概率乘以 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>n</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">n^3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="base"><span class="mord"><span class="mord mathit">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span></span></span></span></span></span></span></span> 后的值，可以证明这个数字一定是一个整数。</p><p>保证 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>T</mi><mo>≤</mo><mn>5</mn><mn>0</mn><mn>0</mn><mn>0</mn></mrow><annotation encoding="application/x-tex"> 1 \leq T \leq 5000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8193em;vertical-align:-0.13597em;"></span><span class="base"><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit" style="margin-right:0.13889em;">T</span><span class="mrel">≤</span><span class="mord mathrm">5</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span><span class="mord mathrm">0</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>5</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">1 \leq n \leq 50</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="base"><span class="mord mathrm">1</span><span class="mrel">≤</span><span class="mord mathit">n</span><span class="mrel">≤</span><span class="mord mathrm">5</span><span class="mord mathrm">0</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn><mo>≤</mo><msub><mi>p</mi><mi>i</mi></msub><mo>≤</mo><msup><mi>n</mi><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">0 \leq p_i \leq n^3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8141079999999999em;"></span><span class="strut bottom" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathrm">0</span><span class="mrel">≤</span><span class="mord"><span class="mord mathit">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathit mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"></span></span></span></span></span><span class="mrel">≤</span><span class="mord"><span class="mord mathit">n</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathrm mtight">3</span></span></span></span></span></span></span></span></span></span></span> (<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>=</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo separator="true">,</mo><mo>⋯</mo><mo separator="true">,</mo><mn>6</mn><mn>3</mn></mrow><annotation encoding="application/x-tex">i = 0, 1, \cdots, 63</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base"><span class="mord mathit">i</span><span class="mrel">=</span><span class="mord mathrm">0</span><span class="mpunct">,</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="minner">⋯</span><span class="mpunct">,</span><span class="mord mathrm">6</span><span class="mord mathrm">3</span></span></span></span>)。</p><h3>输出格式</h3><p>对于每组测试数据，如果 Ben 的记录有误，输出一行信息<code>"Case #x: -1"</code>（不含引号），其中<code>x</code>表示这是第<code>x</code>组测试数据；如果 Ben 的记录正确，输出一行信息 <code>"Case #x: a1 a2 ... an"</code>（不含引号），相邻的两个数中间用一个空格隔开。如果有多组解，输出任意一组解均可。</p>                                            <p class="jsk-radius jsk-text-sm jsk-text-success jsk-margin-bottom-xs"><i class="jsk-icon-info-circle"></i>本题答案不唯一，符合要求的答案均正确</p>
+                                    </div>
+                <div id="samples">
+                                                            <div class="jsk-margin-vertical-sm">
+                        <h4 class="title">样例输入</h4>
+                        <pre class="jsk-text-danger jsk-text-default jsk-padding-vertical-xs">4
+3
+27 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+3
+14 13 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+3
+7 7 7 6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+3
+26 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</pre>
+                    </div>
+                    <div class="jsk-margin-vertical-sm">
+                        <h4 class="title">样例输出</h4>
+                        <pre class="jsk-text-danger jsk-text-default jsk-padding-vertical-xs">Case #1: 0 0 0
+Case #2: 0 0 1
+Case #3: 0 1 2
+Case #4: -1</pre>
+                    </div>
+                                    </div>
+                            </div>
+        </div>
+        <div class="jsk-u-sm-12 jsk-u-md-8 jsk-u-lg-8 jsk-padding-horizontal-0" id="editor">
+            <div class="jsk-tabs" data-jsk-tabs="{noSwipe: 1}">
+                <ul class="jsk-tabs-nav jsk-nav jsk-nav-tabs">
+                                        <li class=" jsk-active tab-file">
+                        <a class="file jsk-padding-vertical-sm">
+                            main.c                        </a>
+                    </li>
+                                        <span class="jsk-nav-tabs-option jsk-fr">
+    <span id="save-code" class="jsk-padding-right-xs" title="保存代码 [Ctrl+S]"><i class="jsk-icon-save"></i></span>
+    <span id="full-screen" data-fullscreen="0" title="非全屏/全屏"><i class="jsk-icon-expand"></i></span>
+
+    <span class="jsk-padding-right-xs">
+        <div class="jsk-dropdown" id="setting-dropdown">
+            <span id="setting" class="jsk-dropdown-toggle config" title="编辑器设置">
+                <i class="jsk-icon-gear"></i>
+            </span>
+            <div class="jsk-dropdown-content jsk-padding-sm" id="setting-menu">
+                <div class="jsk-form-group">
+                    <label class="setting-title">代码高亮</label>
+                    <label class="jsk-radio-inline">
+                        <input type="radio" value="sublime" name="mode" data-jsk-ucheck="" class="jsk-ucheck-radio"><span class="jsk-ucheck-icons"><i class="jsk-icon-unchecked"></i><i class="jsk-icon-checked"></i></span><span class="text-gray"> Sublime</span>
+                    </label>
+                    <label class="jsk-radio-inline">
+                        <input type="radio" value="vim" name="mode" data-jsk-ucheck="" class="jsk-ucheck-radio"><span class="jsk-ucheck-icons"><i class="jsk-icon-unchecked"></i><i class="jsk-icon-checked"></i></span><span class="text-gray"> Vim</span>
+                    </label>
+                    <label class="jsk-radio-inline">
+                        <input type="radio" value="emacs" name="mode" data-jsk-ucheck="" class="jsk-ucheck-radio"><span class="jsk-ucheck-icons"><i class="jsk-icon-unchecked"></i><i class="jsk-icon-checked"></i></span><span class="text-gray"> Emacs</span>
+                    </label>
+                </div>
+                <div class="jsk-form-group jsk-margin-top-sm">
+                    <label class="setting-title">环境配色</label>
+                    <select data-jsk-selected="{ btnSize: &#39;sm&#39;, btnWidth: &#39;150px&#39; }" id="theme-select" style="display: none;">
+                        <option class="theme" value="theme-light" selected="">亮色配色</option>
+                        <option class="theme" value="theme-dark">暗色配色</option>
+                    </select><div class="jsk-selected jsk-dropdown " id="jsk-selected-gcdhf" data-jsk-dropdown="" style="width: 150px;">  <button type="button" class="jsk-selected-btn jsk-btn jsk-dropdown-toggle jsk-btn-sm jsk-btn-default">    <span class="jsk-selected-status jsk-fl">暗色配色</span>    <i class="jsk-selected-icon jsk-icon-caret-down"></i>  </button>  <div class="jsk-selected-content jsk-dropdown-content">    <h2 class="jsk-selected-header"><span class="jsk-icon-chevron-left">返回</span></h2>       <ul class="jsk-selected-list">                     <li class="" data-index="0" data-group="0" data-value="theme-light">         <span class="jsk-selected-text">亮色配色</span>         <i class="jsk-icon-check"></i></li>                                 <li class="jsk-checked" data-index="1" data-group="0" data-value="theme-dark">         <span class="jsk-selected-text">暗色配色</span>         <i class="jsk-icon-check"></i></li>            </ul>    <div class="jsk-selected-hint"></div>  </div></div>
+                </div>
+                <div class="jsk-form-group jsk-margin-top-sm jsk-margin-bottom-0">
+                    <label class="setting-title">代码缩进</label>
+                    <select data-jsk-selected="{ btnSize: &#39;sm&#39;, btnWidth: &#39;150px&#39; }" id="tabsize-select" style="display: none;">
+                        <option class="tabsize" value="tabsize-2">2</option>
+                        <option class="tabsize" value="tabsize-4" selected="">4</option>
+                        <option class="tabsize" value="tabsize-8">8</option>
+                    </select><div class="jsk-selected jsk-dropdown " id="jsk-selected-vsofs" data-jsk-dropdown="" style="width: 150px;">  <button type="button" class="jsk-selected-btn jsk-btn jsk-dropdown-toggle jsk-btn-sm jsk-btn-default">    <span class="jsk-selected-status jsk-fl">4</span>    <i class="jsk-selected-icon jsk-icon-caret-down"></i>  </button>  <div class="jsk-selected-content jsk-dropdown-content">    <h2 class="jsk-selected-header"><span class="jsk-icon-chevron-left">返回</span></h2>       <ul class="jsk-selected-list">                     <li class="" data-index="0" data-group="0" data-value="tabsize-2">         <span class="jsk-selected-text">2</span>         <i class="jsk-icon-check"></i></li>                                 <li class="jsk-checked" data-index="1" data-group="0" data-value="tabsize-4">         <span class="jsk-selected-text">4</span>         <i class="jsk-icon-check"></i></li>                                 <li class="" data-index="2" data-group="0" data-value="tabsize-8">         <span class="jsk-selected-text">8</span>         <i class="jsk-icon-check"></i></li>            </ul>    <div class="jsk-selected-hint"></div>  </div></div>
+                </div>
+            </div>
+        </div>
+    </span>
+</span>
+                    <div class="lang-selector jsk-fr jsk-padding-right">
+                                                <select id="lang" data-jsk-selected="{btnWidth: &#39;130px&#39;, btnSize: &#39;xs&#39;, btnStyle: &#39;secondary&#39;}" style="display: none;">
+                                                                                        <option selected="" value="c" file="main.c" mime="text/x-csrc">
+                                C 语言                            </option>
+                                                                                        <option value="c++" file="main.cpp" mime="text/x-c++src">
+                                C++ 语言 (C++11)                            </option>
+                                                                                        <option value="java" file="Main.java" mime="text/x-java">
+                                Java 语言                            </option>
+                                                    </select><div class="jsk-selected jsk-dropdown " id="jsk-selected-mdf3v" data-jsk-dropdown="" style="width: 130px;">  <button type="button" class="jsk-selected-btn jsk-btn jsk-dropdown-toggle jsk-btn-xs jsk-btn-secondary">    <span class="jsk-selected-status jsk-fl">C 语言</span>    <i class="jsk-selected-icon jsk-icon-caret-down"></i>  </button>  <div class="jsk-selected-content jsk-dropdown-content">    <h2 class="jsk-selected-header"><span class="jsk-icon-chevron-left">返回</span></h2>       <ul class="jsk-selected-list">                     <li class="jsk-checked" data-index="0" data-group="0" data-value="c">         <span class="jsk-selected-text">C 语言</span>         <i class="jsk-icon-check"></i></li>                                 <li class="" data-index="1" data-group="0" data-value="c++">         <span class="jsk-selected-text">C++ 语言 (C++11)</span>         <i class="jsk-icon-check"></i></li>                                 <li class="" data-index="2" data-group="0" data-value="java">         <span class="jsk-selected-text">Java 语言</span>         <i class="jsk-icon-check"></i></li>            </ul>    <div class="jsk-selected-hint"></div>  </div></div>
+                                            </div>
+                </ul>
+                                <div id="jsk-blockly" style="height: 663px; width: 100%; display: none;">
+                <div class="injectionDiv" dir="LTR"><div class="blocklyToolboxDiv" dir="LTR" style="left: 0px; height: 0px;"><div class="blocklyTreeRoot" id=":0" role="tree" aria-selected="false" aria-level="0" aria-labelledby=":0.label" aria-expanded="false" hidefocus="true" tabindex="0"><div class="blocklyTreeRow blocklyHidden" style="padding-left:0px;"><span style="display:inline-block;" class="" role="presentation"></span><span class="blocklyTreeLabel" id=":0.label"></span><span></span></div><div style="background-position:-100px 0;" role="group"><div class="" id=":1" role="treeitem" aria-selected="false" aria-level="1" aria-labelledby=":1.label" aria-setsize="10" aria-posinset="1"><div class="blocklyTreeRow" style="padding-left: 0px; border-left: 8px solid rgb(165, 128, 91);"><span role="presentation"></span><span style="display:inline-block;" class="blocklyTreeIcon blocklyTreeIconNone" role="presentation"></span><span class="blocklyTreeLabel" id=":1.label">通用</span><span></span></div><div style="background-position:0px 0;display:none;" role="group"></div></div><div class="" id=":2" role="treeitem" aria-selected="false" aria-level="1" aria-labelledby=":2.label" aria-setsize="10" aria-posinset="2"><div class="blocklyTreeRow" style="padding-left: 0px; border-left: 8px solid rgb(91, 128, 165);"><span role="presentation"></span><span style="display:inline-block;" class="blocklyTreeIcon blocklyTreeIconNone" role="presentation"></span><span class="blocklyTreeLabel" id=":2.label">逻辑</span><span></span></div><div style="background-position:0px 0;display:none;" role="group"></div></div><div class="" id=":3" role="treeitem" aria-selected="false" aria-level="1" aria-labelledby=":3.label" aria-setsize="10" aria-posinset="3"><div class="blocklyTreeRow" style="padding-left: 0px; border-left: 8px solid rgb(91, 165, 91);"><span role="presentation"></span><span style="display:inline-block;" class="blocklyTreeIcon blocklyTreeIconNone" role="presentation"></span><span class="blocklyTreeLabel" id=":3.label">循环</span><span></span></div><div style="background-position:0px 0;display:none;" role="group"></div></div><div class="" id=":4" role="treeitem" aria-selected="false" aria-level="1" aria-labelledby=":4.label" aria-setsize="10" aria-posinset="4"><div class="blocklyTreeRow" style="padding-left: 0px; border-left: 8px solid rgb(91, 103, 165);"><span role="presentation"></span><span style="display:inline-block;" class="blocklyTreeIcon blocklyTreeIconNone" role="presentation"></span><span class="blocklyTreeLabel" id=":4.label">数学</span><span></span></div><div style="background-position:0px 0;display:none;" role="group"></div></div><div class="" id=":5" role="treeitem" aria-selected="false" aria-level="1" aria-labelledby=":5.label" aria-setsize="10" aria-posinset="5"><div class="blocklyTreeRow" style="padding-left: 0px; border-left: 8px solid rgb(91, 165, 140);"><span role="presentation"></span><span style="display:inline-block;" class="blocklyTreeIcon blocklyTreeIconNone" role="presentation"></span><span class="blocklyTreeLabel" id=":5.label">文本</span><span></span></div><div style="background-position:0px 0;display:none;" role="group"></div></div><div class="" id=":6" role="treeitem" aria-selected="false" aria-level="1" aria-labelledby=":6.label" aria-setsize="10" aria-posinset="6"><div class="blocklyTreeRow" style="padding-left: 0px; border-left: 8px solid rgb(116, 91, 165);"><span role="presentation"></span><span style="display:inline-block;" class="blocklyTreeIcon blocklyTreeIconNone" role="presentation"></span><span class="blocklyTreeLabel" id=":6.label">列表</span><span></span></div><div style="background-position:0px 0;display:none;" role="group"></div></div><div class="" id=":7" role="treeitem" aria-selected="false" aria-level="1" aria-labelledby=":7.label" aria-setsize="10" aria-posinset="7"><div class="blocklyTreeRow" style="padding-left: 0px; border-left: 8px solid rgb(165, 116, 91);"><span role="presentation"></span><span style="display:inline-block;" class="blocklyTreeIcon blocklyTreeIconNone" role="presentation"></span><span class="blocklyTreeLabel" id=":7.label">颜色</span><span></span></div><div style="background-position:0px 0;display:none;" role="group"></div></div><div id=":8" role="treeitem" aria-selected="false" aria-level="1" aria-labelledby=":8.label" aria-setsize="10" aria-posinset="8"><div class="blocklyTreeSeparator" style="border-left: 8px solid rgb(221, 221, 221);"><span role="presentation"></span><span style="display:inline-block;" class="" role="presentation"></span><span id=":8.label"></span><span></span></div><div style="background-position:NaNpx 0;display:none;" role="group"></div></div><div class="" id=":9" role="treeitem" aria-selected="false" aria-level="1" aria-labelledby=":9.label" aria-setsize="10" aria-posinset="9"><div class="blocklyTreeRow" style="padding-left: 0px; border-left: 8px solid rgb(165, 91, 128);"><span role="presentation"></span><span style="display:inline-block;" class="blocklyTreeIcon blocklyTreeIconNone" role="presentation"></span><span class="blocklyTreeLabel" id=":9.label">变量</span><span></span></div><div style="background-position:0px 0;display:none;" role="group"></div></div><div class="" id=":a" role="treeitem" aria-selected="false" aria-level="1" aria-labelledby=":a.label" aria-setsize="10" aria-posinset="10"><div class="blocklyTreeRow" style="padding-left: 0px; border-left: 8px solid rgb(153, 91, 165);"><span role="presentation"></span><span style="display:inline-block;" class="blocklyTreeIcon blocklyTreeIconNone" role="presentation"></span><span class="blocklyTreeLabel" id=":a.label">函数</span><span></span></div><div style="background-position:-100px 0;display:none;" role="group"></div></div></div></div></div><svg xmlns="http://www.w3.org/2000/svg" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="blocklySvg" width="0px" height="0px"><defs><filter id="blocklyEmbossFilter20590984011504587"><fegaussianblur in="SourceAlpha" stdDeviation="1" result="blur"></fegaussianblur><fespecularlighting in="blur" surfaceScale="1" specularConstant="0.5" specularExponent="10" lighting-color="white" result="specOut"><fepointlight x="-5000" y="-10000" z="20000"></fepointlight></fespecularlighting><fecomposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"></fecomposite><fecomposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"></fecomposite></filter><pattern id="blocklyDisabledPattern20590984011504587" patternUnits="userSpaceOnUse" width="10" height="10"><rect width="10" height="10" fill="#aaa"></rect><path d="M 0 0 L 10 10 M 10 0 L 0 10" stroke="#cc0"></path></pattern><pattern id="blocklyGridPattern20590984011504587" patternUnits="userSpaceOnUse" width="100" height="100" x="0" y="0"></pattern></defs><g class="blocklyWorkspace"><rect height="100%" width="100%" class="blocklyMainBackground" style="fill: url(&quot;#blocklyGridPattern20590984011504587&quot;);"></rect><g class="blocklyTrash" transform="translate(-82,-95)" style="opacity: 0.4;"><clippath id="blocklyTrashBodyClipPath3352132462551456"><rect width="47" height="44" y="16"></rect></clippath><image width="96" x="0" height="124" y="-32" clip-path="url(#blocklyTrashBodyClipPath3352132462551456)" xlink:href="//res.jisuanke.com/img/blockly/sprites.png"></image><clippath id="blocklyTrashLidClipPath3352132462551456"><rect width="47" height="16"></rect></clippath><image width="96" x="0" height="124" y="-32" clip-path="url(#blocklyTrashLidClipPath3352132462551456)" xlink:href="//res.jisuanke.com/img/blockly/sprites.png" transform="rotate(0,43,14)"></image></g><g class="blocklyBlockCanvas" transform="translate(0,0) scale(1)"></g><g class="blocklyBubbleCanvas" transform="translate(0,0) scale(1)"></g><rect height="15" width="15" class="blocklyScrollbarBackground" x="-15.5" y="-15.5"></rect></g></svg><svg class="blocklyScrollbarVertical blocklyMainWorkspaceScrollbar" width="15" height="0" style="transform: translate(-15.5px, 0.5px);"><g><rect class="blocklyScrollbarBackground" width="15" height="0"></rect><rect class="blocklyScrollbarHandle" rx="5" ry="5" width="10" x="2.5" height="0" y="0"></rect></g></svg><svg class="blocklyScrollbarHorizontal blocklyMainWorkspaceScrollbar" height="15" width="0" style="transform: translate(0.5px, -15.5px);"><g><rect class="blocklyScrollbarBackground" height="15" width="0"></rect><rect class="blocklyScrollbarHandle" rx="5" ry="5" height="10" y="2.5" width="0" x="0"></rect></g></svg><svg class="blocklyFlyout" style="display: none"><path class="blocklyFlyoutBackground"></path><g class="blocklyWorkspace"><g class="blocklyBlockCanvas"></g><g class="blocklyBubbleCanvas"></g></g></svg><svg class="blocklyScrollbarVertical blocklyFlyoutScrollbar" width="15"><g><rect class="blocklyScrollbarBackground" width="15"></rect><rect class="blocklyScrollbarHandle" rx="5" ry="5" width="10" x="2.5"></rect></g></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="blocklyBlockDragSurface"><g transform="translate(0,0) scale(1)"></g></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="blocklyWsDragSurface blocklyOverflowVisible"></svg></div></div>
+                <xml id="toolbox" style="display: none">
+                    <category name="通用" colour="30">
+                    <block type="input_block"></block>
+                    <block type="map_block"></block>
+                    <block type="dot_block"></block>
+                    <block type="split_block"></block>
+                    <block type="var_type"></block>
+                    <block type="type_convert"></block>
+                    </category>
+                    <category id="catLogic" colour="210" name="逻辑">
+                    <block type="controls_if"></block>
+                    <block type="logic_compare"></block>
+                    <block type="logic_operation"></block>
+                    <block type="logic_negate"></block>
+                    <block type="logic_boolean"></block>
+                    <block type="logic_null"></block>
+                    <block type="logic_ternary"></block>
+                    </category>
+                    <category id="catLoops" colour="120" name="循环">
+                    <block type="controls_repeat_ext">
+                        <value name="TIMES">
+                        <shadow type="math_number">
+                            <field name="NUM">10</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="controls_whileUntil"></block>
+                    <block type="controls_for">
+                        <value name="FROM">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                        </value>
+                        <value name="TO">
+                        <shadow type="math_number">
+                            <field name="NUM">10</field>
+                        </shadow>
+                        </value>
+                        <value name="BY">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="controls_forEach"></block>
+                    <block type="controls_flow_statements"></block>
+                    </category>
+                    <category id="catMath" colour="230" name="数学">
+                    <block type="math_number"></block>
+                    <block type="math_arithmetic">
+                        <value name="A">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                        </value>
+                        <value name="B">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="math_single">
+                        <value name="NUM">
+                        <shadow type="math_number">
+                            <field name="NUM">9</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="math_trig">
+                        <value name="NUM">
+                        <shadow type="math_number">
+                            <field name="NUM">45</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="math_constant"></block>
+                    <block type="math_number_property">
+                        <value name="NUMBER_TO_CHECK">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="math_change">
+                        <value name="DELTA">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="math_round">
+                        <value name="NUM">
+                        <shadow type="math_number">
+                            <field name="NUM">3.1</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="math_on_list"></block>
+                    <block type="math_modulo">
+                        <value name="DIVIDEND">
+                        <shadow type="math_number">
+                            <field name="NUM">64</field>
+                        </shadow>
+                        </value>
+                        <value name="DIVISOR">
+                        <shadow type="math_number">
+                            <field name="NUM">10</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="math_constrain">
+                        <value name="VALUE">
+                        <shadow type="math_number">
+                            <field name="NUM">50</field>
+                        </shadow>
+                        </value>
+                        <value name="LOW">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                        </value>
+                        <value name="HIGH">
+                        <shadow type="math_number">
+                            <field name="NUM">100</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="math_random_int">
+                        <value name="FROM">
+                        <shadow type="math_number">
+                            <field name="NUM">1</field>
+                        </shadow>
+                        </value>
+                        <value name="TO">
+                        <shadow type="math_number">
+                            <field name="NUM">100</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="math_random_float"></block>
+                    </category>
+                    <category id="catText" colour="160" name="文本">
+                    <block type="text"></block>
+                    <block type="text_join"></block>
+                    <block type="text_append">
+                        <value name="TEXT">
+                        <shadow type="text"></shadow>
+                        </value>
+                    </block>
+                    <block type="text_length">
+                        <value name="VALUE">
+                        <shadow type="text">
+                            <field name="TEXT">abc</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="text_isEmpty">
+                        <value name="VALUE">
+                        <shadow type="text">
+                            <field name="TEXT"></field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="text_indexOf">
+                        <value name="VALUE">
+                        <block type="variables_get">
+                            <field name="VAR">text</field>
+                        </block>
+                        </value>
+                        <value name="FIND">
+                        <shadow type="text">
+                            <field name="TEXT">abc</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="text_charAt">
+                        <value name="VALUE">
+                        <block type="variables_get">
+                            <field name="VAR">text</field>
+                        </block>
+                        </value>
+                    </block>
+                    <block type="text_getSubstring">
+                        <value name="STRING">
+                        <block type="variables_get">
+                            <field name="VAR">text</field>
+                        </block>
+                        </value>
+                    </block>
+                    <block type="text_changeCase">
+                        <value name="TEXT">
+                        <shadow type="text">
+                            <field name="TEXT">abc</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="text_trim">
+                        <value name="TEXT">
+                        <shadow type="text">
+                            <field name="TEXT">abc</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="text_print">
+                        <value name="TEXT">
+                        <shadow type="text">
+                            <field name="TEXT">abc</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="text_prompt_ext">
+                        <value name="TEXT">
+                        <shadow type="text">
+                            <field name="TEXT">abc</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    </category>
+                    <category id="catLists" colour="260" name="列表">
+                    <block type="lists_create_with">
+                        <mutation items="0"></mutation>
+                    </block>
+                    <block type="lists_create_with"></block>
+                    <block type="lists_repeat">
+                        <value name="NUM">
+                        <shadow type="math_number">
+                            <field name="NUM">5</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="lists_length"></block>
+                    <block type="lists_isEmpty"></block>
+                    <block type="lists_indexOf">
+                        <value name="VALUE">
+                        <block type="variables_get">
+                            <field name="VAR">list</field>
+                        </block>
+                        </value>
+                    </block>
+                    <block type="lists_getIndex">
+                        <value name="VALUE">
+                        <block type="variables_get">
+                            <field name="VAR">list</field>
+                        </block>
+                        </value>
+                    </block>
+                    <block type="lists_setIndex">
+                        <value name="LIST">
+                        <block type="variables_get">
+                            <field name="VAR">list</field>
+                        </block>
+                        </value>
+                    </block>
+                    <block type="lists_getSublist">
+                        <value name="LIST">
+                        <block type="variables_get">
+                            <field name="VAR">list</field>
+                        </block>
+                        </value>
+                    </block>
+                    <block type="lists_split">
+                        <value name="DELIM">
+                        <shadow type="text">
+                            <field name="TEXT">,</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="lists_sort"></block>
+                    </category>
+                    <category id="catColour" colour="20" name="颜色">
+                    <block type="colour_picker"></block>
+                    <block type="colour_random"></block>
+                    <block type="colour_rgb">
+                        <value name="RED">
+                        <shadow type="math_number">
+                            <field name="NUM">100</field>
+                        </shadow>
+                        </value>
+                        <value name="GREEN">
+                        <shadow type="math_number">
+                            <field name="NUM">50</field>
+                        </shadow>
+                        </value>
+                        <value name="BLUE">
+                        <shadow type="math_number">
+                            <field name="NUM">0</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    <block type="colour_blend">
+                        <value name="COLOUR1">
+                        <shadow type="colour_picker">
+                            <field name="COLOUR">#ff0000</field>
+                        </shadow>
+                        </value>
+                        <value name="COLOUR2">
+                        <shadow type="colour_picker">
+                            <field name="COLOUR">#3333ff</field>
+                        </shadow>
+                        </value>
+                        <value name="RATIO">
+                        <shadow type="math_number">
+                            <field name="NUM">0.5</field>
+                        </shadow>
+                        </value>
+                    </block>
+                    </category>
+                    <sep></sep>
+                    <category id="catVariables" colour="330" custom="VARIABLE" name="变量"></category>
+                    <category id="catFunctions" colour="290" custom="PROCEDURE" name="函数"></category>
+                </xml>
+                <div class="jsk-tabs-bd">
+                    <div class="jsk-tab-panel jsk-active jsk-in jsk-padding-0">
+                        <textarea id="codearea" name="codearea" style="display: none;"></textarea><div class="CodeMirror cm-s-jsk-monokai CodeMirror-simplescroll" style="width: 100%; height: 663px;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 44px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0"></textarea></div><div class="CodeMirror-simplescroll-horizontal" cm-not-content="true" style="display: none;"><div></div></div><div class="CodeMirror-simplescroll-vertical" cm-not-content="true" style="display: none;"><div></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true" style="background-color: rgb(238, 238, 238);"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 40px; margin-bottom: -17px; border-right-width: 13px; min-height: 33px; min-width: 7px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 4px; top: 0px; height: 25px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation"><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -40px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="">​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 13px; width: 1px; border-bottom: 0px solid transparent; top: 33px;"></div><div class="CodeMirror-gutters" style="height: 46px; left: 0px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div><div class="CodeMirror-gutter CodeMirror-foldgutter"></div></div></div></div>
+                    </div>
+                </div>
+            </div>
+            <!-- terminal start -->
+            <div id="terminal" style="display:none">
+    <div class="jsk-panel jsk-panel-default jsk-margin-top-0">
+        <div class="jsk-panel-hd">
+            <a class="close jsk-fr jsk-text-xs">
+                <i class="jsk-icon-times"></i>关闭终端
+            </a>
+            <span>终端 - 计蒜客</span>
+        </div>
+        <div class="jsk-panel-bd jsk-padding-left-0 jsk-padding-right-0 jsk-padding-bottom-0">
+            <div id="jsk-console" class="jsk-console"></div>
+        </div>
+    </div>
+</div>
+            <!-- terminal end -->
+        </div>
+    </div> <!-- /.jsk-panel-bd -->
+    <div id="panel-footer" class="jsk-panel-footer jsk-cf panel-footer">
+        <div id="panel-footer-fullscreen" class="jsk-text-center" style="display: none">
+            <button type="button" class="jsk-btn jsk-btn-default">只看题面</button>
+        </div>
+        <div id="panel-footer-normal">
+            <div class="jsk-u-md-6 jsk-text-left jsk-padding-left-0 info">
+                <span id="status-msg" class="jsk-text-md jsk-fl jsk-cf jsk-dropdown jsk-dropdown-up"></span>
+            </div>
+            <div class="jsk-u-md-6 jsk-fr jsk-text-right jsk-padding-right-0">
+                <audio id="progress-audio" src="//res.jisuanke.com/audio/next.mp3" preload="auto"></audio>
+                <audio id="complete-audio" src="//res.jisuanke.com/audio/success.mp3" preload="auto"></audio>
+                <audio id="fail-audio" src="//res.jisuanke.com/audio/fail.mp3" preload="auto"></audio>
+                                <div class="jsk-btn-group">
+                    <a class="jsk-btn jsk-btn-default jsk-btn-repeat" id="repeat">重做</a>
+                    <a class="jsk-btn jsk-btn-default jsk-margin-right" id="submit-history-trigger">历史</a>
+                </div>
+                                <div class="jsk-btn-group">
+                    <a class="jsk-btn jsk-btn-success" id="test" data-jsk-modal="{target: &#39;#test-modal&#39;}">测试</a>
+                    <a class="jsk-btn jsk-btn-success" id="run">提交</a>
+                </div>
+            </div>
+        </div>
+        <!-- 测试模态框 start -->
+        <div class="jsk-popup jsk-popup-simple" id="test-modal">
+    <div class="jsk-popup-inner">
+        <div class="jsk-popup-hd">
+            <h5 class="jsk-popup-title">在这输入你的测试数据</h5>
+            <span data-jsk-modal-close="" class="jsk-close">×</span>
+        </div>
+        <div class="jsk-popup-bd jsk-form">
+            <div class="jsk-form-group">
+                <textarea class="jsk-form-field" rows="10" id="test-input" style="resize: none"></textarea>
+            </div>
+            <div class="jsk-text-right">
+                                    <a class="jsk-btn jsk-btn-primary" id="test-import" data-case="0">填入样例输入</a>
+                                <a class="jsk-btn jsk-btn-success" id="test-run">运行</a>
+            </div>
+        </div>
+    </div>
+</div>
+        <!-- 测试模态框 end -->
+    </div>
+        <div id="finish-footer" class="jsk-panel-footer jsk-background-success-fade panel-footer-replacement">
+        <div class="jsk-u-md-6 jsk-hide-sm jsk-text-success jsk-padding-left-0">
+            <i class="jsk-icon-check jsk-default jsk-text-xl jsk-fl check"></i>
+            <span class="jsk-text-md jsk-fl success">恭喜你通过了这道题！</span>
+        </div>
+        <div class="jsk-u-md-6 jsk-text-right jsk-padding-right-0">
+            <a class="jsk-btn jsk-link-muted" data-redo="">再次尝试</a>
+            <a class="jsk-btn jsk-btn-success" href="https://www.jisuanke.com/contest/1264">返回题目列表</a>
+        </div>
+    </div>
+    </div> <!-- /.jsk-panel-->
+<div class="jsk-modal jsk-modal-simple jsk-modal-prompt jsk-modal-out" tabindex="-1" id="confirm-modal" style="display: none; margin-top: -84px;">
+  <div class="jsk-modal-dialog">
+    <div class="jsk-modal-hd" id="confirm-title"></div>
+    <div class="jsk-modal-bd" id="confirm-content"></div>
+    <div class="jsk-modal-footer">
+        <span class="jsk-btn jsk-btn-success" data-jsk-modal-cancel="" data-jsk-modal-close="">取消</span>
+        <span class="jsk-btn jsk-btn-default" data-jsk-modal-confirm="" data-jsk-modal-close="">提交</span>
+    </div>
+  </div>
+</div>
+<div class="jsk-modal" tabindex="-1" id="submit-history">
+    <div class="jsk-modal-dialog">
+        <div class="jsk-modal-hd">
+            <h3>提交历史</h3>
+            <span class="jsk-close jsk-fr" data-jsk-modal-close="">
+                <i class="jsk-icon-close"></i>
+            </span>
+        </div>
+        <table class="jsk-table jsk-table-centered jsk-table-striped jsk-margin-0 jsk-text-nowrap">
+            <thead>
+                <tr>
+                    <th>判题状态</th>
+                    <th>提交时间</th>
+                    <th>运行时间</th>
+                    <th>运行内存</th>
+                    <th>使用语言</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+    </div> <!-- /.jsk-container  -->
+
+    <script type="text/javascript" src="./抽球游戏 - 计蒜客_files/raven--b6a85b.js" charset="utf-8"></script><script>
+Raven.config('//7f13df6c3b314350b2747b6b76e04b6e@sentry.jisuanke.com/7', {
+            whitelistUrls: [
+                /jisuanke\.com/
+            ]
+}).install();</script><script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?183e07aa097a1758fd6d45349e74c327";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>    <script type="text/javascript">var jump_hint=false;var has_saved=false;var oi_contest=false;var next_url="\/\/www.jisuanke.com\/contest\/1264";</script>    <script type="text/javascript">var is_contest=true;var editor_mode="jsk-monokai";var init_data={"codes":{"c":"","c++":"","java":""},"locks":{"c":[],"c++":[],"java":[]}};var nanti_id=26017;var chapter_id=6879;var multi_lang_files={"c":["main.c"],"c++":["main.cpp"],"java":["Main.java"]};var file_num=1;var user_language="c";var user_editor_theme="jsk-monokai";var user_editor_mode="sublime";var user_tab_size=4;var hide_locked_code=false;var user_auto_complete=1;var description="<p>Anthony \u624b\u4e2d\u6709 $n$ \u4e2a\u4f9d\u6b21\u6807\u7740\u6574\u6570 $a_1$, $a_2$, $\\cdots$, $a_n$ ($0 \\leq a_1 \\leq a_2 \\leq \\cdots \\leq a_n \\leq 63$) \u7684\u7403\uff0c\u73b0\u5728 Ben \u4f1a\u7b49\u6982\u7387\u968f\u673a\u62bd\u51fa\u4e00\u4e2a\u7403\uff0c\u8bb0\u5f55\u7403\u4e0a\u7684\u6570\u5b57\u5e76\u653e\u56de\uff0c\u91cd\u590d\u8be5\u8fc7\u7a0b\u4e09\u6b21\uff0c\u6700\u7ec8\u4e09\u6b21\u8bb0\u5f55\u4e0b\u7684\u6570\u5b57\u7684\u5f02\u6216\u548c\u5c31\u662f Ben \u7684\u5f97\u5206\u3002<\/p><p>\u7ecf\u8fc7\u975e\u5e38\u975e\u5e38\u591a\u6b21\u6e38\u620f\u4e4b\u540e\uff0cBen \u5206\u6790\u51fa\u4e86\u5f97\u5206\u7684\u6982\u7387\u5206\u5e03\u60c5\u51b5\uff0c\u4f60\u9700\u8981\u6839\u636e\u8fd9\u4e2a\u6982\u7387\u5206\u5e03\u60c5\u51b5\u63a8\u6d4b\u51fa Anthony \u624b\u4e2d\u7684 $n$ \u4e2a\u7403\u4e0a\u7684\u6570\u5b57\uff0c\u6216\u8005\u6307\u51fa Ben \u7684\u8bb0\u5f55\u6709\u8bef\u3002<\/p><h3>\u8f93\u5165\u683c\u5f0f<\/h3><p>\u7b2c\u4e00\u884c\u5305\u542b\u4e00\u4e2a\u6b63\u6574\u6570 $T$\uff0c\u8868\u793a\u6709 $T$ \u7ec4\u6d4b\u8bd5\u6570\u636e\u3002<\/p><p>\u63a5\u4e0b\u6765\u4f9d\u6b21\u63cf\u8ff0 $T$ \u7ec4\u6d4b\u8bd5\u6570\u636e\u3002\u5bf9\u4e8e\u6bcf\u7ec4\u6d4b\u8bd5\u6570\u636e\uff1a<\/p><p>\u7b2c\u4e00\u884c\u5305\u542b\u4e00\u4e2a\u6b63\u6574\u6570 $n$\uff0c\u8868\u793a Anthony \u624b\u4e2d\u7403\u7684\u6570\u91cf\u3002<\/p><p>\u7b2c\u4e8c\u884c\u5305\u542b $64$ \u4e2a\u6574\u6570 $p_0, p_1, \\cdots, p_{63}$\uff0c\u5176\u4e2d $p_i$ \u8868\u793a Ben \u7684\u5f97\u5206\u4e3a $i$ \u7684\u6982\u7387\u4e58\u4ee5 $n^3$ \u540e\u7684\u503c\uff0c\u53ef\u4ee5\u8bc1\u660e\u8fd9\u4e2a\u6570\u5b57\u4e00\u5b9a\u662f\u4e00\u4e2a\u6574\u6570\u3002<\/p><p>\u4fdd\u8bc1 $ 1 \\leq T \\leq 5000$, $1 \\leq n \\leq 50$, $0 \\leq p_i \\leq n^3$ ($i = 0, 1, \\cdots, 63$)\u3002<\/p><h3>\u8f93\u51fa\u683c\u5f0f<\/h3><p>\u5bf9\u4e8e\u6bcf\u7ec4\u6d4b\u8bd5\u6570\u636e\uff0c\u5982\u679c Ben \u7684\u8bb0\u5f55\u6709\u8bef\uff0c\u8f93\u51fa\u4e00\u884c\u4fe1\u606f<code>\"Case #x: -1\"<\/code>\uff08\u4e0d\u542b\u5f15\u53f7\uff09\uff0c\u5176\u4e2d<code>x<\/code>\u8868\u793a\u8fd9\u662f\u7b2c<code>x<\/code>\u7ec4\u6d4b\u8bd5\u6570\u636e\uff1b\u5982\u679c Ben \u7684\u8bb0\u5f55\u6b63\u786e\uff0c\u8f93\u51fa\u4e00\u884c\u4fe1\u606f <code>\"Case #x: a1 a2 ... an\"<\/code>\uff08\u4e0d\u542b\u5f15\u53f7\uff09\uff0c\u76f8\u90bb\u7684\u4e24\u4e2a\u6570\u4e2d\u95f4\u7528\u4e00\u4e2a\u7a7a\u683c\u9694\u5f00\u3002\u5982\u679c\u6709\u591a\u7ec4\u89e3\uff0c\u8f93\u51fa\u4efb\u610f\u4e00\u7ec4\u89e3\u5747\u53ef\u3002<\/p>";var hint="";var supported_languages=["c","c++","java"];var supported_languages_info={"c":{"key":"c","name":"C","iname":"c","title":"C \u8bed\u8a00","mime":"text\/x-csrc","filename":"main.c","ext":"c"},"c++":{"key":"c++","name":"C++","iname":"c++","title":"C++ \u8bed\u8a00 (C++11)","mime":"text\/x-c++src","filename":"main.cpp","ext":"cpp"},"c++14":{"key":"c++14","name":"C++","iname":"c++","title":"C++ \u8bed\u8a00 (C++14)","mime":"text\/x-c++src","filename":"main.cpp","ext":"cpp"},"java":{"key":"java","name":"Java","iname":"java","title":"Java \u8bed\u8a00","mime":"text\/x-java","filename":"Main.java","ext":"java"},"python":{"key":"python","name":"Python","iname":"python","title":"Python \u8bed\u8a00 (2.7)","mime":"text\/x-python","filename":"main.py","ext":"py"},"python3":{"key":"python3","name":"Python","iname":"python","title":"Python \u8bed\u8a00 (3.5)","mime":"text\/x-python","filename":"main.py","ext":"py"},"ruby":{"key":"ruby","name":"Ruby","iname":"ruby","title":"Ruby \u8bed\u8a00","mime":"text\/x-ruby","filename":"main.rb","ext":"rb"},"blockly":{"key":"blockly","name":"Python","iname":"python","title":"Blockly \u8bed\u8a00","mime":"text\/x-python","filename":"main.bl","ext":"bl"},"octave":{"key":"octave","name":"Octave","iname":"octave","title":"Octave \u8bed\u8a00","mime":"text\/x-octave","filename":"main.m","ext":"m"},"pascal":{"key":"pascal","name":"Pascal","iname":"pascal","title":"Pascal \u8bed\u8a00","mime":"text\/x-pascal","filename":"main.pas","ext":"pas"}};var samples=[["4\n3\n27 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n3\n14 13 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n3\n7 7 7 6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n3\n26 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0","Case #1: 0 0 0\nCase #2: 0 0 1\nCase #3: 0 1 2\nCase #4: -1"]];var special_judge=1;var diff_level=0;var has_standard_or_solution=false;var files=["main.c"];var language="c";var language_info={"key":"c","name":"C","iname":"c","title":"C \u8bed\u8a00","mime":"text\/x-csrc","filename":"main.c","ext":"c"};</script>    <script type="text/javascript" src="./抽球游戏 - 计蒜客_files/jsk-base--b783c3.js" charset="utf-8"></script><script type="text/javascript" src="./抽球游戏 - 计蒜客_files/jsk-widget--a6a509.js" charset="utf-8"></script>    <script type="text/javascript" src="./抽球游戏 - 计蒜客_files/pack--47c45d.js" charset="utf-8"></script><div id="lightboxOverlay" class="lightboxOverlay" style="display: none;"></div><div id="lightbox" class="lightbox" style="display: none;"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="><div class="lb-nav"><a class="lb-prev" href="https://www.jisuanke.com/contest/1264/69004"></a><a class="lb-next" href="https://www.jisuanke.com/contest/1264/69004"></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div>
+
+<div class="jsk-popover jsk-popover-sm jsk-popover-top" id="jsk-popover-zayvd" style="top: 87px; left: 408.5px; display: none;"><div class="jsk-popover-inner">时间限制</div><div class="jsk-popover-caret"></div></div><div class="jsk-popover jsk-popover-sm jsk-popover-top" id="jsk-popover-m33ru" style="top: 36px; left: 578.5px;"><div class="jsk-popover-inner">内存限制</div><div class="jsk-popover-caret"></div></div><div class="blocklyWidgetDiv"></div><div class="blocklyTooltipDiv"></div></body></html>

@@ -1,0 +1,26 @@
+\documentclass[7pt, a4paper]{article}
+\usepackage{ctex}
+\usepackage{amsmath}%数学的库
+\usepackage{graphicx}%图片处理的库
+\usepackage[centerlast]{caption}
+\usepackage[bf, small]{titlesec}
+\usepackage[top = 1.0in, bottom = 1.0in, left = 1.0in, right = 1.0in]{geometry}
+
+\setlength{\parskip}{0.5\baselineskip}
+\setlength{\parindent}{2em}
+
+\title{Solution}
+\author{$BasicLaw$}
+
+\begin{document}
+\maketitle
+
+\section{A}
+\subsection{Description}
+自动门会在开启后d秒关闭，现在有$n(n <= 10^{9})$个人，分别在$a, 2a, 3a, ..., na$时间进入自动门，以及$m(m <= 10^{5})$个人分别在$t_{i}$时间进入自动门，问门总共要开多少次。
+\subsection{Solution}
+大模拟题，细节比较多。
+
+考虑将$t_{i}$从小到大逐次插入，如果它已经被覆盖，则继续;不然就将其前面的所有a都覆盖掉(可以$O(1)$计算)，再判断是否覆盖更新时间与答案即可。
+
+\end{document}

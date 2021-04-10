@@ -1,0 +1,35 @@
+digraph test059 {
+	d[label="059: random bigraph, n=6, +20 edges, NO" shape=box]
+	v1
+	v2
+	v3
+	v4
+	v5
+	v6
+	v4 -> v6;
+	v1 -> v2;
+	v2 -> v4;
+	v4 -> v5;
+	v6 -> v4;
+	v4 -> v5;
+	v2 -> v3;
+	v4 -> v2;
+	v4 -> v6;
+	v6 -> v1;
+	v3 -> v2;
+	v2 -> v3;
+	v6 -> v3;
+	v2 -> v3;
+	v5 -> v4;
+	v3 -> v6;
+	v3 -> v6;
+	v4 -> v2;
+	v1 -> v6;
+	v1 -> v2;
+	v6 -> v1;
+	v1 -> v6;
+	v3 -> v2;
+	v6 -> v3;
+	v6 -> v1;
+	v1 -> v6;
+}

@@ -1,0 +1,31 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage{ctex}
+\usepackage{amsmath}%数学的库
+\usepackage{graphicx}%图片处理的库
+\usepackage[centerlast]{caption}
+\usepackage[bf, small]{titlesec}
+\usepackage[top = 1.0in, bottom = 1.0in, left = 1.0in, right = 1.0in]{geometry}
+
+\setlength{\parskip}{0.8\baselineskip}
+\setlength{\parindent}{2em}
+
+\title{1.21-1.26汇总}
+\author{BasicLaw}
+
+\begin{document}
+\maketitle
+
+\section{A}
+\subsection{Source}
+\url{http://codeforces.com/problemset/problem/914/E}
+\subsection{Description}
+一棵树,每个节点有字母a \sim t,一条路径(u,v)合法 <=> 上面节点字母存在一个排列为回文排列.
+
+求每个点被合法路径经过的次数.
+
+一个点组成的路径也算合法.
+
+\subsection{Solution}
+a \sim t=0..19,一条路径满足条件当且仅当出现奇数次的字母不超过一个,将字母压位后,一段路径所有点异或=0/1<<i即满足条件.考虑树分治,存下从顶点到根的异或集合.对于子树内答案的统计,每次dfs 一个根子树,dfs到这个点时,它会被以它为起点,终点在其他根子树和起点在它子树,终点在其他根子树的路径统计,前一部分直接查询异或集合,后一部分dfs回溯时得到.
+
+\end{document}

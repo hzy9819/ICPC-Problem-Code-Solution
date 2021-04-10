@@ -1,0 +1,33 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage{ctex}
+\usepackage{amsmath}%数学的库
+\usepackage{graphicx}%图片处理的库
+\usepackage[centerlast]{caption}
+\usepackage[bf, small]{titlesec}
+\usepackage[top = 1.0in, bottom = 1.0in, left = 1.0in, right = 1.0in]{geometry}
+
+\setlength{\parskip}{0.8\baselineskip}
+\setlength{\parindent}{2em}
+
+\title{Solution}
+\author{Hzy9819}
+
+\section{Tips}
+这一场出的题好难写啊，特别容易WA，还好没打。
+\section{A}
+\subsection{Description}
+有n个医生，第i个医生只在第s_i, s_i + d_i, s_i + 2 * d_i...天工作，你现在要按顺序看医生，且一天只能看一个医生，问你最少要几天才能看完医生。
+
+n <= 1000
+\subsection{Solution}
+按公式求出当前下一次看医生是第几天，注意当前天数正好是下一医生工作的情况。
+\section{B}
+\subsection{Description}
+有n个人站成一列，每次列首的两个人比赛，权值大的人会赢，输的人站到列尾，第一个赢得k次的人获得比赛的胜利，给出每个人的权值，保证互不相同，问最终权值为多少的人会赢。
+
+n <= 500, k <= 10^12.
+\subsection{Solution}
+扫一遍过去即可，略坑，注意统计一个人赢得次数时要记上前一个人与他比赛的次数。
+
+\section{C}
+

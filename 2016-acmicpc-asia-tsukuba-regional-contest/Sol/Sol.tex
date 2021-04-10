@@ -1,0 +1,76 @@
+\documentclass[7pt, a4paper]{article}
+\usepackage{ctex}
+\usepackage{amsmath}%数学的库
+\usepackage{graphicx}%图片处理的库
+\usepackage[centerlast]{caption}
+\usepackage[bf, small]{titlesec}
+\usepackage[colorlinks, linkcolor=blue]{hyperref}
+\usepackage[top = 1.0in, bottom = 1.0in, left = 1.0in, right = 1.0in]{geometry}
+
+\setlength{\parskip}{0.5\baselineskip}
+\setlength{\parindent}{2em}
+
+\title{Solution}
+\author{$Hzy9819$}
+
+\begin{document}
+\maketitle
+
+\section{A}
+\subsection{Description}
+n个数，m个操作，数字1 $\sim$ n 一开始按顺序排好，每次把一个数字拿到第一个，问最终的序列是什么
+\subsection{Solution}
+倒着搞即可
+
+\section{B}
+\subsection{Description}
+给定一个10 * 10的变换规则，即i * j -> $a_{i,j}$。对于一个4位数abcd逐位进行变换（前一个数和后一个数变换），变换出的结果作为第5位。那么对于一个5位数是合法的就是经过变换后的结果为0（自己与自己变换保证结果为0），问对于所有的4位数，调整一个位上的数字，或者交换相邻的位置的数，结果仍可能合法的个数有多少。
+\subsection{Solution}
+暴力即可，注意细节
+
+\section{C}
+\subsection{Description}
+有n条传送带，m个机械臂，机械臂位于两个传送带之间，可以把一个传送带上的货物运到另一传送带上，现给出每个机械臂的位置，问每条传送带最多可以收到几条传送带上的货物。
+
+$n, m$ $<=$ $200000$
+\subsection{Solution}
+把每个机械臂的最大运送带数量作为状态Dp即可，单调队列维护。
+
+\section{D}
+\subsection{Description}
+给定两个串，问两个串的最长字串满足字符集和每种字符的数量相同
+
+串长 $<=$ $4000$, 字符集为小写字母。
+\subsection{Solution}
+暴力枚举一个串的子串，hash处理，另一个串暴力枚举验证即可。
+
+\section{F}
+\subsection{Description}
+给定n个组，每个组内有若干个祖先关系x,y。给定初始的祖先关系p,q。问在满足pq祖先关系的条件下，是否可以把组分成两类，真类中的组中关系全部成立，假类中的组中关系全部不成立。
+
+$n$ $<=$ $1000$, 总关系数 $<=$ $100000$, 人数 $<=$ $300$
+\subsection{Solution}
+考虑将问题抽象化，即把祖先关系看成是有向图的联通关系，当存在环时显然就不存在了。那么就是给定一个初始边，不断地将包含这条边的组加入图中，再循环反复，验证图中是否有环即可。
+
+但考虑到每次需要用Floyd进行更新，可能导致超时，我们对Floyd进行优化，更新两点之间的联通关系只要存在一个点把他们连起来就可以了，所以直接压位进行与运算即可。优化后的复杂度除以64足以通过此题。
+
+\section{G}
+\subsection{Description}
+按顺序给定n个数，两个相同的数x可以变成一个x-1，当加入后会产生0的数我们不加入，问最终的状态。
+
+$n$ $<=$ $100000$, $x$ $<=$ $10^{18}$
+
+\subsection{Solution}
+把连续的一段数成线段，那么一个数加入可能是四种状况：
+
+1.自成一个线段
+
+2.延伸一个线段
+
+3.合并两条线段
+
+4.断开并形成一个线段(加在线段上)
+
+维护线段判断即可。
+
+\end{document}

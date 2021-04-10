@@ -1,0 +1,7 @@
+digraph test005 {
+	d[label="005: min. test, n=2, +0 edges, YES" shape=box]
+	v1
+	v2
+	v1 -> v2;
+	v2 -> v1;
+}

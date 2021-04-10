@@ -1,0 +1,1 @@
+asy -noV -f eps hypercube.asy

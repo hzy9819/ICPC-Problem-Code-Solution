@@ -1,0 +1,78 @@
+\begin{problem}{Jump}{standard input}{standard output}{2 seconds}
+
+% Author: Maxim Buzdalov (idea & text)
+
+Consider a toy interactive problem \textsc{OneMax} which is defined as follows. 
+You know an integer $n$ and there is a hidden bit string $S$ of length $n$. 
+The only thing you may do is to present the system a bit string $Q$ of length $n$, 
+and the system will return the number $\textsc{OneMax}(Q)$~--- 
+the number of bits which coincide in $Q$ and~$S$ at the corresponding positions.
+The name of \textsc{OneMax} problem stems from the fact that this problem is simpler to explain
+when $S = 111\ldots11$, so that the problem turns into maximization (\textsc{Max}) of the number of ones (\textsc{One}).
+
+When $n$ is even, there is a similar (but harder) interactive problem called $\textsc{Jump}$. 
+The simplest way to describe the $\textsc{Jump}$ is by using \textsc{OneMax}:
+\begin{equation*}
+\textsc{Jump}(Q) = \begin{cases}
+\textsc{OneMax}(Q) & \text{if } \textsc{OneMax}(Q) = n \text{ or } \textsc{OneMax}(Q) = n/2;\\
+0 & \text{otherwise}.
+\end{cases}
+\end{equation*}
+
+Basically, the only nonzero values of \textsc{OneMax} which you can see with \textsc{Jump} 
+are $n$ (which means you've found the hidden string $S$) and $n/2$.
+
+Given an even integer $n$~--- the problem size, you have to solve the \textsc{Jump} problem
+for the hidden string $S$ by making interactive \textsc{Jump} queries. 
+Your task is to eventually make a query $Q$ such that $Q = S$.
+
+\Interaction
+
+First, the testing system tells the length of the bit string $n$. 
+Then, your solution asks the queries and the system answers them as given by the \textsc{Jump} definition. 
+When a solution asks the query $Q$ such that $Q = S$, the system answers $n$ and terminates,
+so if your solution, after reading the answer $n$, tries reading or writing anything, it will fail.
+
+The limit on the number of queries is $n + 500$. If your solution asks a $(n + 501)$-th query,
+then you will receive the ``Wrong Answer'' outcome. 
+You will also receive this outcome if your solution terminates too early.
+
+If your query contains wrong characters (neither \texttt{0}, nor \texttt{1}), 
+or has a wrong length (not equal to $n$), the system will terminate the testing and you will receive 
+the ``Presentation Error'' outcome. 
+
+You will receive the ``Time Limit Exceeded'' outcome and other errors for the usual violations.
+
+Finally, if everything is OK (e.g. your solution finds the hidden string) on every test,
+you will receive the ``Accepted'' outcome, in this case you will have solved the problem.
+
+\InputFile
+
+The first line of the input stream contains an even number $n$ ($2 \le n \le 1000$).
+The next lines of the input stream consist of the answers to the corresponding queries.
+Each answer is an integer~--- either $0$, $n/2$, or $n$. Each answer is on its own line.
+
+\OutputFile
+
+To make a query, print a line which contains a string of length $n$ which consists of characters 
+\texttt{0} and \texttt{1} only. Don't forget to put a newline character and to flush 
+the output stream after you print your query.
+
+\Example
+
+\begin{example}%
+\exmp{
+2
+1
+0
+1
+2
+}{
+01
+11
+10
+00
+}%
+\end{example}
+
+\end{problem}

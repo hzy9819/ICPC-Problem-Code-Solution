@@ -1,0 +1,68 @@
+\begin{problem}{Distance on Triangulation}{distance.in}{distance.out}{3 seconds}
+
+% Author: Gennady Korotkevich (idea & text)
+
+You have a convex polygon.
+The vertices of the polygon are successively numbered from $1$ to $n$.
+You also have a triangulation of this polygon, given as a list of $n - 3$ diagonals.
+
+You are also given $q$ queries. Each query consists of two vertex indices.
+For each query, find the shortest distance between these two vertices, provided that you can move by the 
+sides and by the given diagonals of the polygon,
+and the distance is measured as the total number of sides and diagonals you have traversed.
+
+\InputFile
+
+The first line of the input file contains an integer
+$n$~--- the number of vertices of the polygon
+($4 \le n \le 50\,000$).
+
+Each of the following $n - 3$ lines contains two integers
+$a_i, b_i$~--- the ends of the $i$-th diagonal
+($1 \le a_i, b_i \le n$, $a_i \neq b_i$).
+
+The next line contains an integer
+$q$~--- the number of queries
+($1 \le q \le 100\,000$).
+
+Each of the following $q$ lines contains two integers
+$x_i, y_i$~--- the vertices in the $i$-th query
+($1 \le x_i, y_i \le n$).
+
+It is guaranteed that no diagonal coincides with a side of the polygon,
+and that no two diagonals coincide or intersect.
+
+\OutputFile
+
+For each query output a line containing the shortest distance.
+
+\Example
+
+\begin{example}
+\exmp{
+6
+1 5
+2 4
+5 2
+5
+1 3
+2 5
+3 4
+6 3
+6 6
+}{
+2
+1
+1
+3
+0
+}%
+\end{example}
+
+This is the polygon from the sample input.
+
+\begin{center}
+\includegraphics{pics/distance.1}
+\end{center}
+
+\end{problem}

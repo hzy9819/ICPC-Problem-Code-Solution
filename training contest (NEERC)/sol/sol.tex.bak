@@ -1,0 +1,136 @@
+\documentclass[7pt, a4paper]{article}
+\usepackage{ctex}
+\usepackage{amsmath}%数学的库
+\usepackage{graphicx}%图片处理的库
+\usepackage[centerlast]{caption}
+\usepackage[bf, small]{titlesec}
+\usepackage[colorlinks, linkcolor=blue]{hyperref}
+\usepackage[top = 1.0in, bottom = 1.0in, left = 1.0in, right = 1.0in]{geometry}
+
+\setlength{\parskip}{0.5\baselineskip}
+\setlength{\parindent}{2em}
+
+\title{Solution}
+\author{$BasicLaw$}
+
+\begin{document}
+\maketitle
+\section{A}
+\subsection{Description}
+给定一个$n*n$的方阵，其中$(x, y)$处的数字是$x+y$，每次查询一行or一列值的总和，并将这一行or一列的数字全部变为0.
+
+对于每次查询输出答案
+
+$n$ $<=$ $10^5$
+\subsection{Solution}
+直接可以推导出每次查询的公式：$$sum = x * (N - N_{operated}) + \frac{N * (N + 1)}{2} - Sum_{operated}$$
+
+其中$N_{operated}$和$Sum_{operated}$是之前操作所引起的行or列以及和的减少，对于行与列分别进行维护即可
+
+\section{B}
+\subsection{Description}
+$Defination$ $of$ $Bin-decimal$ $Number$ : 一个数为$Bin-decimal$ $Number$当且仅当它的二进制表示为十进制表示的一个后缀.
+
+求第$n$个$Bin-decimal$ $Number$.($1$是第一个.)
+
+$n$ $<=$ $10^{4}$
+\subsection{Solution}
+一个性质 : $10^k$ $mod$ $2^(k+1)$ $=$ $2^k$ ($10^k$总是$Bin-decimal$ $Number$)
+
+设$C_k$表示所有 $<$ $10^k$的$Bindecimal$ $Number$的集合,
+
+$A_k$表示 $<$ $10^k$且十进制第$k$位(从$1$开始）为$0$的$Bin-decimal$ $Number$数集,
+
+$B_k$表示 $<$ $10^k$且十进制第$k$位(从$1$开始）为$1$的$Bin-decimal$ $Number$数集,
+
+则$C_k$ $=$ $A_k$ $\cup$ $B_k$,
+
+考虑从$k=1$逐步往上枚举，
+
+$A_1=0$, $B_1=1$,（$0$也作为$Bin-decimal$ $Number$)
+
+对$k$, 考虑在第$k$位加$0$还是$1$,容易验证：
+
+$A_k$ $=$ (x $\|$ x为$C_{k-1}$中二进制第k位(从1)为0的数)
+
+$B_k$ $=$ (x+$10^k$ $\|$ x为$C_{k-1}$中二进制第k位(从1)为0的数)
+
+$C_k$ $=$ $A_k$ $\cup$ $B_k$
+
+不断往上递推即可.
+注意要开大整数.
+
+\section{E}
+\subsection{Description}
+每个题目有0-50的难度;你现在要出一套共n个题.
+
+你有一堆judge,每个judge有一个有若干题目的队列,从第一个judge开始,选择当前队首的题目并提交,然后让它出队;设当前已出的题的难度之和为sum,若提交的题>=sum则把它列入待出的题，否则丢掉。如果judge的队列空了就提交一道难度50的题.提交完后轮到第二个judge,第三个judge,...,第一个judge,...如果所有judge的所有题都提交了,但题目仍不够,则直接提交若干难度50的题而不经过审核.
+
+计算最后题目的总难度.
+\subsection{Solution}
+模拟
+
+
+\section{G}
+\subsection{Description}
+给定一些序列满足：$x_{i+1}$ $=$ $(a*x_{i}+b)$ $mod$ $c$
+
+现在要求你从每个序列中选出一个数字满足它们的和最大且不被$k$整除
+
+$a$, $b$, $c$, $x_0$ $<=$ $1000$
+
+$n$ $<=$ $10000$
+
+$k$ $<=$ $10^9$
+\subsection{Solution}
+考虑一个显然的贪心：若所有序列的最大值之和不可取，那么只要将某一序列的最大值改为次大值(且这个次大值与最大值的差不能被k整除).
+
+证明非常简单：因为我们需要修改答案的同余系，若修改$k$次可以做到，那么只修改$k-1$次也一定能做到，那么只修改一次显然是最优的。
+
+由此，做法就非常简单了
+
+\section{J}
+\subsection{Description}
+要你猜一个长度为$n$的$01$串，检验器只会在猜对了$n$位或$n/2$位时返回$n$或$n/2$，其余时返回0.
+
+允许你猜$n+500$次
+
+$n$ $<=$ $1000$
+\subsection{Solution}
+不妨暴力随机猜$n/2$串，看起来像rp题？
+
+考虑概率：$$ P_{n/2} = \frac{\tbinom{n}{n/2}}{2^n} $$
+
+在$n$取$1000$时取得最小值，且大于0.2！(500次绰绰有余)
+
+问题是得出了$n/2$串之后如何在n次内猜出全串。
+
+尽管你并不知道有那些位置是正确的，但你可以通过同时修改两个位置的值判断这两个位置的正误性是否相同。那么做法就很简单了，可以通过$n$次操作把位置划分位两类，对于每类位置修改一次尝试一下即可(貌似要$n+1$次？)
+
+\section{K}
+\subsection{Description}
+求一个n个点，m条边的有向图的\textbf{Hamiltonian cycle}.
+
+$n$ $<=$ $10^6$, $m$ $<=$ $n + 20$
+
+\textbf{Hamiltonian cycle}:
+
+wiki(\url{https://zh.wikipedia.org/wiki/%E5%93%88%E5%AF%86%E9%A1%BF%E5%9B%BE})
+
+baidu(\url{https://baike.baidu.com/item/%E5%93%88%E5%AF%86%E9%A1%BF%E5%9B%9E%E8%B7%AF})
+
+\subsection{Solution}
+由于边数只比点数多20，所以很多边都是一条链，那么直接缩链重构图即可，而且重构的图仅有40个点40条边(约)，直接跑暴力即可。
+
+\section{L}
+\subsection{Description}
+有一座山，形状类似一个宽为$w$的柱状图，可看成若干$1*1$的石头块堆叠（一块不挨着地面的石头下面一定有石头）;
+
+你有$n$块新石头，要求放在山上使得新石头的左下、右下、正下方都有石头（老/新石头）,满足这个条件下使高度最大。
+
+$w$ $<=$ $100000$,$n$ $<=$ $10^{18}$
+\subsection{Solution}
+二分最大高度$H$，对位置$i$,分别处理往左和往右要多少石头，以往左为例，目标是搭出一个金字塔形，找到不用放新石头的位置中最大的那个（设$j$),则只用从$i$铺新石头到$j$即可,那么维护一个单调队列，每次查询满足条件的$j$。
+
+
+\end{document}

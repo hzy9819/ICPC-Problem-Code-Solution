@@ -1,0 +1,35 @@
+digraph test038 {
+	d[label="038: some graph, n=8, +16 edges, NO" shape=box]
+	v1
+	v2
+	v3
+	v4
+	v5
+	v6
+	v7
+	v8
+	v6 -> v7;
+	v4 -> v2;
+	v6 -> v4;
+	v4 -> v6;
+	v1 -> v3;
+	v2 -> v4;
+	v3 -> v5;
+	v7 -> v2;
+	v5 -> v8;
+	v4 -> v7;
+	v5 -> v3;
+	v7 -> v4;
+	v2 -> v7;
+	v1 -> v5;
+	v8 -> v5;
+	v8 -> v3;
+	v3 -> v1;
+	v5 -> v1;
+	v6 -> v2;
+	v2 -> v6;
+	v7 -> v6;
+	v8 -> v1;
+	v3 -> v8;
+	v1 -> v8;
+}

@@ -1,0 +1,39 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage{ctex}
+\usepackage{amsmath}%数学的库
+\usepackage{graphicx}%图片处理的库
+\usepackage[centerlast]{caption}
+\usepackage[bf, small]{titlesec}
+\usepackage[top = 1.0in, bottom = 1.0in, left = 1.0in, right = 1.0in]{geometry}
+
+\setlength{\parskip}{0.8\baselineskip}
+\setlength{\parindent}{2em}
+
+\title{Pro}
+\author{Hzy9819}
+
+\begin{document}
+\maketitle
+
+\section{A}
+\subsection{Description}
+现在有$n$个棋子放在台阶上，第$i$枚棋子在第$a_i$阶，$A$和$B$轮流移动棋子($A$先)，其中每次可以将一颗在第$k$阶的棋子向下移动$x$阶，其中$x$是$k$的质因数(包括$1$和本身)，直到无法移动(全部棋子都在第$0$阶)，无法移动的人输。
+
+设A和B足够聪明，问谁最终将赢得胜利。
+
+其中$n$ $<=$ $10^5$, $a_i$ $<=$ $10^18$;
+
+\subsection{Limit}
+$Time$ $Limit$ : $1s$
+
+$Memory$ $Limit$ : $128M$
+
+\subsection{Input Format}
+有多组测试数据，初始的一行有一个整数$t$($t$ $<=$ $10$)代表数据组数。
+
+接下来$t$组测试数据，对于每组数据，第一行有一个整数$n$，接下来一行有$n$个整数，即$a_i$。
+
+\subsection{Out Format}
+对于每组测试数据，输出一行，即谁将获得胜利($A$或$B$)。
+
+\end{document}

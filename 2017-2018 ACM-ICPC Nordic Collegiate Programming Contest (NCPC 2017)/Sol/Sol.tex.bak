@@ -1,0 +1,105 @@
+\documentclass[7pt, a4paper]{article}
+\usepackage{ctex}
+\usepackage{amsmath}%数学的库
+\usepackage{graphicx}%图片处理的库
+\usepackage[centerlast]{caption}
+\usepackage[bf, small]{titlesec}
+\usepackage[colorlinks, linkcolor=blue]{hyperref}
+\usepackage[top = 1.0in, bottom = 1.0in, left = 1.0in, right = 1.0in]{geometry}
+
+\setlength{\parskip}{0.5\baselineskip}
+\setlength{\parindent}{2em}
+
+\title{Solution}
+\author{$BasicLaw$}
+
+\begin{document}
+\maketitle
+
+\section{A}
+\subsection{Description}
+$Jonna$从$0$走到$L$, 路上有$n$个咖啡馆, 每次路过可以买一杯咖啡, 等$t$时间冷却后用$r$时间喝完, 期间可以走路, 没喝咖啡时步速是$a$, 喝时是$b$.手上咖啡没喝完时再买一杯就要丢掉原来的咖啡.求到达$L$ 最短时间.
+\subsection{Solution}
+设f[i]表示从0到咖啡馆i最短时间,三种转移:
+
+f[i]=f[j]+(s[i,j]-b*r)/a+r (a*t+b*r$<$s[i,j])
+
+f[i]=f[j]+(s[i,j]-a*t)/b+t (a*t+b*r$>=$s[i,j],a*t$<$s[i,j])
+
+f[i]=f[j]+s[i,j]/a (a*t$>=$s[i,j])
+
+第一种直接取最小值,第二种维护一个单调队列,第三种不用维护.
+
+注意细节,如最短时间可能为1e11.
+
+\section{B}
+\subsection{Description}
+有场$4$ * $100$接力赛,你有一群运动员,每个跑第$1$个$100$要$a_{i}$时间,跑其他$100$要$b_{i}$时间,选$4$个出来使总时间最小.
+\subsection{Solution}
+暴力。
+
+\section{C}
+\subsection{Description}
+给$n$个元素, 元素的内容形如$(int a[3], int id)$, 其中a[i]为角度且$0 <= a[i] < 360$, $id$互异;
+对于$i$, 分别将当前未被删除的元素的$a[i]$放在一个极坐标系中, 设这$n$个$a[i]$为$c[n]$, 定义$b[i]$ $=$ ($c[i]$逆时针转到c[i]最近的c的角度) + ($c[i]$顺时针转到$c[i]$最近的$c$的角度), 其中存在$j != i$, 满足$c[i] == c[j]$, 则认为$c[j]$对于$c[i]$两个方向均为最近;
+
+以$\sum{b_{i}}$升序为第一关键字, $id$降序为第二关键字, 删除元素
+
+按顺序输出$id$
+\subsection{Solution}
+分类讨论删除元素对其他元素的影响, 发现每次删除最多影响6个元素; 代码实现是一个难点
+
+
+
+\section{D}
+\subsection{Description}
+给出n个长度相等的01串，构造出一个等长的01串，使得该串与所有给出串的最小\textbf{汉明距离($Hamming$ $distance$)}距离最大。
+
+$n <= 10^{5}$, 串长最大$20$。
+
+\textbf{汉明距离}：在信息论中，两个等长字符串之间的汉明距离（英语：Hamming distance）是两个字符串对应位置的不同字符的个数。换句话说，它就是将一个字符串变换成另外一个字符串所需要替换的字符个数。 ------ 维基百科(\url{https://zh.wikipedia.org/wiki/%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB})
+
+\subsection{Solution}
+将每个01串视为一个点，那么最多$2^{20}$个点，每次做一次修改可以移动到$Hamming$ $distance$为$1$的点。
+
+那么考虑进行$bfs$，初始将所有给出的点加入队列中，可以发现最后被遍历到的点即所求构造串。
+
+\section{E}
+\subsection{Description}
+给出一个$n$ * $m$的数字矩阵代表当地海拔，其中正数为陆地，负数为水池。
+
+现在给出的某一处挖一个洞， 问可以从该洞流出多少水。其中联通(八联通)的水池间的水可以相互流通。
+\subsection{Solution}
+从给定点对周围联通的点进行更新(最后水位)，类似Spfa的更新方式，注意对Spfa进行优化(若加入点答案比队头优的话加入队头)。
+
+细节较多，注意初始化。
+
+\section{G}
+\subsection{Description}
+一场比赛的排名以题目通过数越大为第一关键字，以罚时越小为第二关键字，队伍ID越小为第三关键字，现给出若干个事件(某队解决了一题，罚时为多少)，输出每次事件发生后，队伍1的排名。
+
+事件数，队伍数 $<=$ $10^{5}$
+
+\subsection{Solution}
+$Splay$维护即可，或者写支持删除的堆也可(左偏树，斐波那契堆?)，普通堆打标记也可以。
+
+\section{I}
+\subsection{Description}
+求有向图长度最小的环.点数$<=$ $500$.
+\subsection{Solution}
+枚举每个点bfs.
+
+
+\section{K}
+\subsection{Description}
+给出$s1, s2, s3$，他们的数量为$t1, t2, t3$。再给出$m(m = (t1 + t2 + t3) / 2)$个数$c_{i}$，现让你任意组合$s_{x} + s_{y}$($x$ 可以等于 $y$)，使得$(s_{x} + s_{y}) * c_{i}$的最小值最大。
+
+\subsection{Solution}
+考虑二分答案，验证时将c排序后从小到大拿尽可能小的$s_{x} + s_{y}$去满足即可。
+
+证明验证时贪心的正确性：
+
+若$s_{i}$的组已经分好，那么这种组合显然最优。
+
+对于没有分好的情况：若当前去拿稍大一点的$s_{x} + s_{y}$去满足，只会让结果更坏，故基于二分的答案当前分组方式最优。
+\end{document}

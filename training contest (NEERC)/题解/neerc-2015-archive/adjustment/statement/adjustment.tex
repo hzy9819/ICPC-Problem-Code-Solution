@@ -1,0 +1,56 @@
+\begin{problem}{Adjustment Office}{adjustment.in}{adjustment.out}{2 seconds}
+
+% Author: Vitaliy Aksenov (idea & text)
+
+Garrison and Anderson are working in a company named ``Adjustment Office''. 
+In competing companies workers change the reality, 
+in this company they try to predict the future.
+
+They are given a big square board $n \times n$. 
+Initially in each cell $(x, y)$ of this board the value of $x + y$ is written ($1 \le x, y \le n$).
+They know that in the future there will be two types of queries on the board:
+\begin{itemize}
+\item ``\texttt{R} $r$''~--- sum up all values in row $r$, print the result and set all values in row $r$ to zero;
+\item ``\texttt{C} $c$''~--- sum up all values in column $c$, print the result and set all values in column $c$ to zero.
+\end{itemize}
+
+They have predicted what queries and results there will be. 
+They need to ensure that they have correctly predicted the results.
+Help them by computing the results of the queries.
+ 
+\InputFile
+
+The first line of the input contains two integers $n$ and $q$ ($1 \leq n \leq 10^6, 1 \leq q \leq 10^5$)~---
+the size of the square and the number of queries.
+
+Each of the next $q$ lines contains the description of the query.
+Each query is either ``\texttt{R} $r$'' ($1 \leq r \leq n$) or ``\texttt{C} $c$'' ($1 \leq c \leq n$).
+
+\OutputFile
+
+The output file shall contain $q$ lines. The $i$-th line shall contain one integer~--- the result of the $i$-th query.
+
+\Example
+
+\begin{example}
+\exmp{
+3 7
+R 2
+C 3
+R 2
+R 1
+C 2
+C 1
+R 3
+}{
+12
+10
+0
+5
+5
+4
+0
+}%
+\end{example}
+
+\end{problem}

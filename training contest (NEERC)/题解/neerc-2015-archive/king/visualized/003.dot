@@ -1,0 +1,12 @@
+digraph test003 {
+	d[label="003: square with diagonal, n=4, +1 edges, YES" shape=box]
+	v1
+	v2
+	v3
+	v4
+	v1 -> v2;
+	v1 -> v3;
+	v2 -> v3;
+	v3 -> v4;
+	v4 -> v1;
+}

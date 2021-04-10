@@ -1,0 +1,48 @@
+\documentclass[11pt, a4paper]{article}
+\usepackage{ctex}
+\usepackage{amsmath}%数学的库
+\usepackage{graphicx}%图片处理的库
+\usepackage[centerlast]{caption}
+\usepackage[bf, small]{titlesec}
+\usepackage[top = 1.0in, bottom = 1.0in, left = 1.0in, right = 1.0in]{geometry}
+
+\setlength{\parskip}{0.8\baselineskip}
+\setlength{\parindent}{2em}
+
+\title{Solution}
+\author{Hzy9819}
+
+\begin{document}
+\maketitle
+
+\section{A}
+\subsection{Description}
+给定一个二进制01串，问你可不可以删掉一些位使得剩下的01串整除64(10进制)。
+
+\subsection{Solution}
+傻逼题，统计一下0的个数即可。
+
+\section{B}
+\subsection{Description}
+给你$k$个6面的骰子，6个面上有$0$ $\sim$ $9$的数字，问用这些骰子最多可以从$1$表示到几。
+
+$k$ $<=$ $3$;
+\subsection{Solution}
+枚举+暴力判断即可。
+
+\section{C}
+\subsection{Description}
+给你一个魔方的初始状态，问你可不可以通过一次旋转使它还原为6面同色。
+
+\subsection{Solution}
+大模拟题。
+
+\section{D}
+\subsection{Description}
+一个模特会经历两种事件，一种可以涨$a$支持度，一种会降$b$支持度。现在有$n$个事件，发生在$t_i$时间，事件类型为$tp_i$。现在你可以挑任意一个时刻，进行一次演讲，之后$a$会变成$c$，$b$会变成$d$，演讲的有效时间为$e$。
+
+现给定一个初始支持度为$start$的模特，询问是否存在一个演讲时刻，使得她的支持度一直到演讲有效时间结束都大于$0$。如果存在多个时刻，则输出最早的那个。
+
+$n$ $<=$ $3 * 10^5$, $a$, $b$, $c$, $d$, $e$, $start$ $<=$ $10^9$
+
+\end{document}

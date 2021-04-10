@@ -1,0 +1,81 @@
+\begin{problem}{Binary vs Decimal}{binary.in}{binary.out}{2 seconds}
+
+% Author: Mikhail Tikhomirov (idea & text)
+
+Bruce has recently got a job at NEERC (Numeric Expression Engineering \& Research Center) facility, which studies and produces
+many kinds of curious numbers. His first assignment is to perform a study of bindecimal numbers.
+
+A positive integer is called \emph{bindecimal} if its decimal representation is a suffix of its binary representation; both binary and decimal representations are
+considered without leading zeros.
+For example, $10_{10} = 10\mathbf{10}_2$, thus, $10$ is a bindecimal number. The numbers $1010_{10} = 111111\mathbf{0010}_2$ and $42_{10} = 1010\mathbf{10}_{10}$
+are, evidently, not bindecimal.
+
+First of all, Bruce is going to create a list of bindecimal numbers. Help him find the $n$-th smallest bindecimal number.
+
+\InputFile
+
+The first and the only line contains one integer~--- $n$ ($1 \leq n \leq 10\,000$).
+
+\OutputFile
+
+Print one integer~--- the $n$-th smallest bindecimal number in decimal notation.
+
+\Example
+
+\begin{example}
+\exmp{
+1
+}{
+1
+}%
+\exmp{
+2
+}{
+10
+}%
+\exmp{
+10
+}{
+1100
+}%
+\end{example}
+
+\Note
+
+Here is a table with the first few numbers which contain only 0's and 1's in their decimal representation (it is clear that all other numbers are not bindecimal):
+
+\begin{center}
+
+\begin{tabular}{|r|r|l|}
+\hline
+Decimal & Binary & Comment \\
+\hline
+1 & {\bf 1} & 1st bindecimal number \\
+\hline
+10 & 10{\bf 10} & 2nd bindecimal number \\
+\hline
+11 & 10{\bf 11} & 3rd bindecimal number \\
+\hline
+100 & 1100{\bf 100} & 4th bindecimal number \\
+\hline
+101 & 1100{\bf 101} & 5th bindecimal number \\
+\hline
+110 & 1101{\bf 110} & 6th bindecimal number \\
+\hline
+111 & 1101{\bf 111} & 7th bindecimal number \\
+\hline
+1000 & 111110{\bf 1000} & 8th bindecimal number \\
+\hline
+1001 & 111110{\bf 1001} & 9th bindecimal number \\
+\hline
+1010 & 111111{\bf 0010} & Not a bindecimal number \\
+\hline
+1011 & 111111{\bf 0011} & Not a bindecimal number \\
+\hline
+1100 & 1000100{\bf 1100} & 10th bindecimal number \\
+\hline
+\end{tabular}
+
+\end{center}
+
+\end{problem}

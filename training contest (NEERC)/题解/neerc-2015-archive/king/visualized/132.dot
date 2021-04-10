@@ -1,0 +1,24 @@
+digraph test132 {
+	d[label="132: random chords, n=10, +1 edges, YES" shape=box]
+	v1
+	v2
+	v3
+	v4
+	v5
+	v6
+	v7
+	v8
+	v9
+	v10
+	v10 -> v8;
+	v5 -> v4;
+	v9 -> v1;
+	v4 -> v3;
+	v7 -> v2;
+	v2 -> v6;
+	v6 -> v5;
+	v8 -> v9;
+	v1 -> v7;
+	v10 -> v3;
+	v3 -> v10;
+}
